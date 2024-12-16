@@ -1,0 +1,64 @@
+div {
+  background: red;
+}
+
+#root {
+  color: white;
+  background: blue;
+}
+
+
+.card {
+  background: lightblue;
+}
+
+.bordered {
+  border: 5px solid blue;
+}
+
+.bold-font {
+  font-weight: 800;
+}
+
+.container {
+  background: lightgreen;
+}
+
+div {
+  background: red;
+}
+
+.bottom-section {
+  background: white;
+}
+
+#bottom-section {
+  background: black;
+}
+
+.spacing-item {
+  width: 500px;
+  height: 100px;
+  background: black;
+  color: white;
+  font-size: 50px;
+
+  /* margin */
+  /* margin: 20px 50px; */
+  margin: 10px 20px 30px 40px;
+  /* margin-top: 10px; */
+  /* margin-top: 10px;
+  margin-right: 500px;
+  margin-left: 500px;
+  margin-bottom: 100px; */
+
+  /* padding */
+  /* padding: 20px 60px; */
+  /* padding: 10px 20px 30px 40px; */
+  /* padding: 20px; */
+  /* padding-top: 50px; */
+    /* padding-right: 50px; */
+  /* padding-left: 50px; */
+  /* padding-bottom: 50px; */
+  padding: 100px 0;
+} 

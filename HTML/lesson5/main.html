@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Forms</title>
+    <link rel="stylesheet" href="./main.css" />
+  </head>
+  <body>
+    <h1>Forms</h1>
+
+    <form>
+      <!-- TEXT -->
+      <h5>Text</h5>
+      <input type="text" placeholder="Name" />
+      <input type="text" placeholder="Surname (optional)" />
+
+      <input type="email" placeholder="Email" />
+      <input id="password" type="password" placeholder="Password" />
+      <input type="url" placeholder="Your linked in link" />
+
+      <textarea placeholder="Big text"></textarea>
+      <!-- <button id="password-switch-button" type="button">Hide/Show password</button> -->
+
+      <select>
+        <option value="select-a-role">Select a role</option>
+        <option value="developer">Developer</option>
+        <option value="manager">Manager</option>
+        <option value="designer">Designer</option>
+      </select>
+
+      <!-- Date -->
+      <h5>Date</h5>
+      <input type="datetime" placeholder="Select date" />
+      <input type="date" placeholder="Select date" />
+
+      <input type="month" placeholder="Month" />
+      <input type="week" placeholder="Week" />
+
+      <button type="submit">Submit</button>
+      <button type="reset">Cancel</button>
+
+      <!-- Time -->
+      <h5>Time</h5>
+      <input type="time" placeholder="Select time" />
+
+      <!-- File -->
+      <h5>Files</h5>
+      <input type="file" multiple placeholder="File" />
+
+      <!-- Color -->
+      <h5>Color</h5>
+      <span>Select color</span>
+      <input id="color" type="color" placeholder="Select a color" />
+
+      <!-- Checks -->
+      <label for="check">
+        <input id="check" type="checkbox" placeholder="Check it" />
+        I agree with terms of service
+      </label>
+
+      <!-- Radio -->
+     
+        <label for="option-1">
+          <input
+            id="option-1"
+            value="option-1"
+            type="radio"
+            name="option"
+            placeholder="Option"
+          />
+          Option 1
+        </label>
+
+        <label for="option-2">
+          <input
+            id="option-2"
+            value="option-2"
+            type="radio"
+            name="option"
+            placeholder="Option"
+          />
+          Option 2
+        </label>
+
+        <label for="option-3">
+          <input
+            id="option-3"
+            value="option-3"
+            type="radio"
+            name="option"
+            placeholder="Option"
+          />
+          Option 3
+        </label>
+
+        <!-- Number -->
+        <h5>Number</h5>
+        <input type="number" min="10" max="100" placeholder="Number" />
+
+        <!-- Tel -->
+        <h5>Tel</h5>
+        <input type="tel" placeholder="Tel" />
+
+        <!-- Range -->
+        <h5>Range</h5>
+        <input type="range" step="2" min="0" max="10" placeholder="Range" />
+    </form>
+
+    <!-- <button type="">Another Button</button> -->
+
+    <!-- <script>
+        const input = document.querySelector("#password");
+        const button = document.querySelector("#password-switch-button");
+
+        button.onclick = () => {
+            input.type = input.type === "password" ? "text" : "password";
+        }
+    </script> -->
+
+    <!-- <script>
+        const input = document.querySelector("#color");
+
+        input.oninput = () => {
+            document.body.style.background = input.value;
+        };
+    </script> -->
+  </body>
+</html>

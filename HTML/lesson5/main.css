@@ -1,13 +1,85 @@
 form {
-    max-width: 350px;
-    display: flex;
-    flex-direction: column;
+  max-width: 350px;
+  display: flex;
+  flex-direction: column;
 }
 
-input {
-    margin: 3px 0;
+.registration-form {
+  background: lightgray;
+  padding: 20px;
+  border-radius: 8px;
+  margin: auto;
+}
+
+.registration-form h1 {
+  width: 100%;
+  text-align: center;
+}
+
+/* option {
+    font-size: 20px;
+    background: blue;
+    border-radius: 8px;
+} */
+
+input:not([type="file"], [type="color"]),
+textarea,
+select {
+  border: none;
+  outline: none;
+}
+
+.input,
+.textarea,
+.select {
+  margin: 3px 0;
+  padding: 5px;
+  border-radius: 8px;
+  font-size: 20px;
+}
+
+.input.primary-input,
+.textarea.primary-textarea,
+.select.primary-select {
+  background: lightblue;
+}
+
+.input.secondary-input,
+.textarea.secondary-textarea,
+.select.secondary-select {
+  background: rgb(193, 185, 185);
+}
+
+.input .secondary-input {
+  background: rgb(200, 85, 85);
+}
+
+.input > .secondary-input {
+  background: rgb(10, 60, 50);
+}
+
+.input-wrapper > .input.secondary-input {
+  background: rgb(224, 29, 22);
+}
+
+#input {
+  background: black;
+}
+
+#input.clicked {
+  background: red;
+}
+
+/* .dropdown > .btn.btn-warning {
+    background: blue;
+} */
+
+.paragraph > .span {
 }
 
 button {
-    margin: 3px 0;
+  margin: 3px 0;
 }
+
+
+p {}

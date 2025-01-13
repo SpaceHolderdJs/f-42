@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./main.css" />
+  </head>
+  <body>
+    <h1>Flex</h1>
+
+    <h2>Placement</h2>
+    <h2>In ROW</h2>
+    <div class="flex-container flex-row">
+      <div class="square"></div>
+      <div class="square"></div>
+      <div class="square"></div>
+    </div>
+
+    <h2>In COLUMN</h2>
+    <div class="flex-container flex-column">
+      <div class="square"></div>
+      <div class="square"></div>
+      <div class="square"></div>
+    </div>
+
+    <h2>Horizontal Centering</h2>
+
+    <h3>Left</h3>
+    <div class="flex-container flex-row justify-start">
+      <div class="square"></div>
+      <div class="square"></div>
+    </div>
+
+    <h3>Center</h3>
+    <div class="flex-container flex-row justify-center">
+      <div class="square"></div>
+      <div class="square"></div>
+    </div>
+
+    <h3>Right</h3>
+    <div class="flex-container flex-row justify-end">
+      <div class="square"></div>
+      <div class="square"></div>
+    </div>
+
+    <h3>Space-Between</h3>
+    <div class="flex-container flex-row justify-between">
+      <div class="square"></div>
+      <div class="square"></div>
+      <div class="square"></div>
+    </div>
+
+    <h3>Space-Around</h3>
+    <div class="flex-container flex-row justify-around">
+      <div class="square"></div>
+      <div class="square"></div>
+      <div class="square"></div>
+    </div>
+
+    <h3>Space-Evenly</h3>
+    <div class="flex-container flex-row justify-evenly">
+      <div class="square"></div>
+      <div class="square"></div>
+      <div class="square"></div>
+    </div>
+
+    <h2>Vertical centering</h2>
+
+    <h3>Start</h3>
+    <div class="flex-container flex-row align-start flex-column-styled">
+      <div class="square"></div>
+      <div class="square"></div>
+    </div>
+
+    <h3>Center</h3>
+    <div class="flex-container flex-row align-center flex-column-styled">
+      <div class="square"></div>
+      <div class="square"></div>
+    </div>
+
+    <h3>End</h3>
+    <div class="flex-container flex-row align-end flex-column-styled">
+      <div class="square"></div>
+      <div class="square"></div>
+    </div>
+
+    <h2>Flex Direction Column</h2>
+    <p>Reverts the rules:</p>
+    <p>Row: [justify-content: horizontal, align-items: vertical]</p>
+    <p>Column: [justify-content: vertical, align-items: horizontal]</p>
+
+    <h3>Basic examples</h3>
+
+    <h5>Vertically centered (now with justify-center)</h5>
+    <div class="flex-container flex-column flex-column-styled justify-center">
+      <div class="square"></div>
+    </div>
+
+    <h5>Horizontally centered (now with align-center)</h5>
+    <div class="flex-container flex-column flex-column-styled align-center">
+      <div class="square"></div>
+    </div>
+
+    <h3>Advanced column examples with justify-content</h3>
+
+    <h3>Space-Between</h3>
+    <div class="flex-container flex-column flex-column-styled justify-between">
+      <div class="square-mini"></div>
+      <div class="square-mini"></div>
+      <div class="square-mini"></div>
+    </div>
+
+    <h3>Space-Around</h3>
+    <div class="flex-container flex-column flex-column-styled justify-around">
+      <div class="square-mini"></div>
+      <div class="square-mini"></div>
+      <div class="square-mini"></div>
+    </div>
+
+    <h3>Space-Evenly</h3>
+    <div class="flex-container flex-column flex-column-styled justify-evenly">
+      <div class="square-mini"></div>
+      <div class="square-mini"></div>
+      <div class="square-mini"></div>
+    </div>
+
+    <h2>Advanced flex-direction</h2>
+    <h2>Row (reversed)</h2>
+    <div class="flex-container flex-row-reverse justify-center align-center">
+      <div class="square">1</div>
+      <div class="square">2</div>
+      <div class="square">3</div>
+      <div class="square">4</div>
+    </div>
+
+    <h2>Column (reversed)</h2>
+    <div
+      class="flex-container flex-column-reverse justify-center align-center flex-column-styled"
+    >
+      <div class="square">1</div>
+      <div class="square">2</div>
+      <div class="square">3</div>
+      <div class="square">4</div>
+    </div>
+
+    <h2>Wrapping (overflow) and width</h2>
+    <h2>Flex wrap</h2>
+    <div class="flex-container flex-row flex-wrap justify-center align-center">
+      <div class="square"></div>
+      <div class="square"></div>
+      <div class="square"></div>
+      <div class="square"></div>
+      <div class="square"></div>
+      <div class="square"></div>
+      <div class="square"></div>
+      <div class="square"></div>
+    </div>
+
+    <h2>Flex no-wrap</h2>
+    <div
+      class="flex-container flex-row flex-nowrap justify-center align-center"
+    >
+      <div class="square"></div>
+      <div class="square"></div>
+      <div class="square"></div>
+      <div class="square"></div>
+    </div>
+
+    <h2>Flex wrap-reverse</h2>
+    <div
+      class="flex-container flex-row flex-wrap-reverse justify-center align-center"
+    >
+      <div class="square">1</div>
+      <div class="square">2</div>
+      <div class="square">3</div>
+      <div class="square">4</div>
+    </div>
+
+    <h2>Flex Shirnk</h2>
+    <div style="width: 500px" class="flex-container flex-row">
+      <div style="flex-shrink: 0" class="square">
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+      </div>
+
+      <div style="flex-shrink: 1" class="square">
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+      </div>
+    </div>
+
+    <h2>Flex Grow</h2>
+    <div class="flex-container flex-row">
+      <div style="flex-grow: 2" class="square">
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+      </div>
+
+      <div style="flex-grow: 5" class="square">
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+      </div>
+    </div>
+
+    <hr />
+
+    <h2>Flex shrink 777</h2>
+    <div style="width: 500px" class="flex-container flex-row">
+      <div style="flex-shrink: 0" class="square">
+        <p>
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Pariatur
+          eaque tempora omnis. A, velit consequuntur incidunt quibusdam
+          laudantium repudiandae id asperiores odit! Sit velit autem dolorum
+          mollitia sapiente perferendis officia.
+        </p>
+      </div>
+      <div style="flex-shrink: 1" class="square">
+        <p>
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Pariatur
+          eaque tempora omnis. A, velit consequuntur incidunt quibusdam
+          laudantium repudiandae id asperiores odit! Sit velit autem dolorum
+          mollitia sapiente perferendis officia.
+        </p>
+      </div>
+      <div style="flex-shrink: 3" class="square">
+        <p>
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Pariatur
+          eaque tempora omnis. A, velit consequuntur incidunt quibusdam
+          laudantium repudiandae id asperiores odit! Sit velit autem dolorum
+          mollitia sapiente perferendis officia.
+        </p>
+      </div>
+    </div>
+  </body>
+</html>

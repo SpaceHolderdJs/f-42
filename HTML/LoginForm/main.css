@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+body {
+    padding: 0;
+    margin: 0;
+}
+
+* {
+    font-family: "Roboto";
+    box-sizing: border-box;
+}
+
+.main {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background: #0C6FFE;
+}
+
+.sections-wrapper {
+    width: 70%;
+    max-width: 1700px;
+    min-width: 1200px;
+    display: grid;
+    grid-template-columns: 2fr 1.5fr;
+    gap: 100px;
+}
+
+.text-section {
+    display: flex;
+    gap: 50px;
+    width: 100%;
+    flex-direction: column;
+    color: white;
+}
+
+.text-section .logo {
+    width: 300px;
+    height: 100px;
+    object-fit: cover;
+}
+
+.text-section hr {
+    width: 100%;
+}
+
+.text-section article {
+    width: 100%;
+}
+
+.text-section article h1 {
+    margin: 0;
+    margin-bottom: 45px;
+    font-size: 50px;
+    font-weight: 400;
+}
+
+.text-section article p {
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+/* Form */
+
+.form-section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-section form {
+    background: #FDFFFE;
+    border-radius: 15px;
+    width: 90%;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-section form h2 {
+    margin: 0;
+    margin-bottom: 15px;
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.form-section form p {
+    font-size: 20px;
+}
+
+.form-section form a {
+    color: #578B9E;
+    transition: 0.3s all;
+}
+
+.form-section form a:hover {
+    color: rgb(114, 197, 197);
+}
+
+.form-section form .text-field {
+    outline: none;
+    border: 1.5px solid #dcdedd;
+    border-radius: 5px;
+    padding: 15px 10px;
+    margin: 15px 0;
+    font-size: 20px;
+    color: black;
+}
+
+
+/* Завдання: */
+
+/* 1. Доверстати секцію з формою за зображенням */
+
+/* Додатково */
+
+/* 2. За допомогою auto-fit та display: grid у контейнері sections-wrapper */
+/* Реалізуйте адаптивний сценарій верстки */
+/* Перенести контет форми нижче, відобразивши 1 колонку grid */

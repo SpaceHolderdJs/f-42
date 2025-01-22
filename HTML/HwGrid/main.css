@@ -1,0 +1,107 @@
+.main {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.grid-gallery {
+    width: 100%;
+    max-width: 1520px;
+    min-width: 300px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 500px);
+    justify-content: center;
+    gap: 10px;
+}
+
+.grid-gallery-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 500px;
+    height: 500px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    color: white;
+    transition: 0.3s all;
+    filter: grayscale(10);
+}
+
+.grid-gallery-item:nth-child(even) {
+    background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnGi_FJnvq9ZRPbFGnQ8W_dyl2nSeJGdBq2w&s');
+}
+
+.grid-gallery-item:hover {
+    background-position: 40% 40%;
+    filter: grayscale(0);
+}
+
+.grid-gallery-item:nth-child(odd) {
+    background-image: url('https://cdn.pixabay.com/photo/2024/01/17/12/06/car-8514314_640.png');
+}
+
+.grid-gallery-item:nth-child(5) {
+    background-image: url('https://thumbs.dreamstime.com/b/steampunk-car-desert-post-apocalyptic-ai-generated-steampunk-car-desert-316574405.jpg');
+}
+
+
+.grid-gallery-item h1 {
+    font-size: 70px;
+}
+
+.grid-gallery-item p {
+    font-size: 3rem;
+}
+
+.flex-gallery {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    width: 100%;
+    max-width: 1520px;
+    min-width: 300px;
+}
+
+.flex-gallery-item {
+    width: 500px;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: url('https://t3.ftcdn.net/jpg/01/23/52/24/360_F_123522471_XZe5ebqil1DFJRgOUJ6taDP4DnmHjtL7.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+.flex-gallery-2 {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 1520px;
+    min-width: 300px;
+    gap: 10px;
+}
+
+.flex-gallery-row {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    gap: 10px;
+}
+
+.flex-gallery-item-2 {
+    width: 500px;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: url('https://stimg.cardekho.com/images/carexteriorimages/630x420/Skoda/Kylaq/11528/1733225175669/front-left-side-47.jpg?impolicy=resize&imwidth=480');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    flex-shrink: 0;
+}

@@ -1,0 +1,36 @@
+.grid-container {
+  width: 100%;
+  max-width: 1500px;
+  min-height: 100vh;
+  display: grid;
+  /* grid-template-columns: 300px 1fr; */
+  /* grid-template-rows: repeat(3, 300px); */
+  grid-template-areas:
+    ". myhead myhead"
+    "mymain mymain mymain"
+    "myfooter . ."
+    "myfooter . .";
+}
+
+header {
+  grid-area: myhead;
+  background: lightskyblue;
+}
+
+main {
+  grid-area: mymain;
+  background: lightslategray;
+}
+
+footer {
+  grid-area: myfooter;
+  background: lightseagreen;
+}
+
+
+
+/* Зверстати "таблицю" використовуючи grid-template-areas (div) */
+/* 1. 3 x 3 */
+/* columns: 100px, 500px, 1fr */
+/* rows - (height: 200-300px)*/
+/* Для кожного рядку використайте свій колір */

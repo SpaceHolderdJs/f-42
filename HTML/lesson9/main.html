@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./main.css" />
+  </head>
+  <body>
+    <h1>Table (basic example)</h1>
+    <table>
+      <tr>
+        <td>name: Igor</td>
+        <td>Age: 25</td>
+        <td>Email: email@gmail.com</td>
+      </tr>
+    </table>
+
+    <h1>Table (with headers)</h1>
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Email</th>
+      </tr>
+
+      <tr class="me">
+        <td>Igor</td>
+        <td>25</td>
+        <td>email@gmail.com</td>
+      </tr>
+
+      <tr>
+        <td>Alex</td>
+        <td>26</td>
+        <td>email2@gmail.com</td>
+      </tr>
+    </table>
+
+    <h1>Table (with collapsed borders)</h1>
+    <table class="table-collapsed-borders">
+      <tr>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Email</th>
+      </tr>
+
+      <tr class="me">
+        <td>Igor</td>
+        <td>25</td>
+        <td>email@gmail.com</td>
+      </tr>
+
+      <tr>
+        <td>Alex</td>
+        <td>26</td>
+        <td>email2@gmail.com</td>
+      </tr>
+    </table>
+
+    <h1>Table with different sizings</h1>
+    <table class="table-diff-sizes">
+      <tr>
+        <th class="name-table-col">Name</th>
+        <th>Age</th>
+        <th>Email</th>
+      </tr>
+
+      <tr class="me first-table-tr">
+        <td>Igor</td>
+        <td>25</td>
+        <td>email@gmail.com</td>
+      </tr>
+
+      <tr>
+        <td>Alex</td>
+        <td>26</td>
+        <td>email2@gmail.com</td>
+      </tr>
+    </table>
+
+    <h1>Table with headers on the left</h1>
+    <table>
+      <tr>
+        <th>Name</th>
+        <td>Igor</td>
+        <td>Alex</td>
+      </tr>
+
+      <tr>
+        <th>Age</th>
+        <td>25</td>
+        <td>26</td>
+      </tr>
+
+      <tr>
+        <th>Email</th>
+        <td>email@gmail.com</td>
+        <td>email2@gmail.com</td>
+      </tr>
+    </table>
+
+    <h1>Table with multi-headers</h1>
+    <table>
+      <tr>
+        <th></th>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Email</th>
+      </tr>
+
+      <tr>
+        <th>0</th>
+        <td>Igor</td>
+        <td>25</td>
+        <td>email@gmail.com</td>
+      </tr>
+
+      <tr>
+        <th>1</th>
+        <td>Alex</td>
+        <td>26</td>
+        <td>email2@gmail.com</td>
+      </tr>
+    </table>
+
+    <h1>Table with colspan property</h1>
+    <table>
+      <tr>
+        <th>ID</th>
+        <th colspan="3">Credentials</th>
+      </tr>
+
+      <tr>
+        <td>1</td>
+        <td>email@gmail.com</td>
+        <td>password1</td>
+        <td>sadas12323312312</td>
+      </tr>
+
+      <tr>
+        <td>2</td>
+        <td>email2@gmail.com</td>
+        <td>password2</td>
+        <td>sadas12323312sasa22</td>
+      </tr>
+
+      <tr>
+        <th colspan="4">Other Data</th>
+      </tr>
+
+      <tr>
+        <th colspan="2">Last Login:</th>
+        <td colspan="2">01.06.2023</td>
+      </tr>
+
+      <tr>
+        <th colspan="2">Last Login:</th>
+        <td colspan="2">09.07.2025</td>
+      </tr>
+
+      <tr>
+        <th colspan="1">Last Login:</th>
+        <td colspan="3">09.07.2025</td>
+      </tr>
+    </table>
+
+    <h1>Tables with rowspan property</h1>
+    <table>
+      <tr>
+        <th></th>
+        <th>Name</th>
+        <th>Model</th>
+        <th>Year</th>
+        <th>Price</th>
+      </tr>
+
+      <tr>
+        <th rowspan="3">Low</th>
+        <td>Ford</td>
+        <td>Mustang</td>
+        <td>2017</td>
+        <td>13k</td>
+      </tr>
+
+      <tr>
+        <td>Ford</td>
+        <td>Focus</td>
+        <td>2015</td>
+        <td>10k</td>
+      </tr>
+
+      <tr>
+        <td>Opel</td>
+        <td>Astra</td>
+        <td>2012</td>
+        <td>8k</td>
+      </tr>
+
+      <tr>
+        <th rowspan="3">Medium</th>
+        <td>Nissan</td>
+        <td>Juke</td>
+        <td>2009</td>
+        <td>8k</td>
+      </tr>
+
+      <tr>
+        <td>Nissan</td>
+        <td>350Z</td>
+        <td>2013</td>
+        <td>18k</td>
+      </tr>
+
+      <tr>
+        <td>Nissan</td>
+        <td>GTR</td>
+        <td>2013</td>
+        <td>18k</td>
+      </tr>
+
+      <tr>
+        <th rowspan="3">High</th>
+        <td>Nissan</td>
+        <td>Juke</td>
+        <td>2009</td>
+        <td>8k</td>
+      </tr>
+
+      <tr>
+        <td>Nissan</td>
+        <td>350Z</td>
+        <td>2013</td>
+        <td>18k</td>
+      </tr>
+
+      <tr>
+        <td>Nissan</td>
+        <td>GTR</td>
+        <td>2013</td>
+        <td>18k</td>
+      </tr>
+    </table>
+
+    <h1>Table with caption</h1>
+    <table>
+      <caption>
+        My data to share
+      </caption>
+
+      <tr>
+        <th>Name</th>
+        <th>Age</th>
+      </tr>
+      <tr>
+        <td>Igor</td>
+        <td>25</td>
+      </tr>
+    </table>
+
+    <h1>Stripped table</h1>
+    <table class="stripped-table">
+      <tr>
+        <th>1</th>
+        <th>2</th>
+        <th>3</th>
+      </tr>
+
+      <tr>
+        <td>1</td>
+        <td>2</td>
+        <td>3</td>
+      </tr>
+
+      <tr>
+        <td>1</td>
+        <td>2</td>
+        <td>3</td>
+      </tr>
+
+      <tr>
+        <td>1</td>
+        <td>2</td>
+        <td>3</td>
+      </tr>
+
+      <tr>
+        <td>1</td>
+        <td>2</td>
+        <td>3</td>
+      </tr>
+    </table>
+
+    <h1>Stripped tables vertical</h1>
+    <table class="stripped-vertical-table">
+      <tr>
+        <td>1</td>
+        <td>2</td>
+        <td>3</td>
+      </tr>
+
+      <tr>
+        <td>1</td>
+        <td>2</td>
+        <td>3</td>
+      </tr>
+
+      <tr>
+        <td>1</td>
+        <td>2</td>
+        <td>3</td>
+      </tr>
+    </table>
+
+    <h1>Adaptive tables</h1>
+    <div class="adaptive-table-container">
+      <table class="adaptive-table">
+        <tr>
+          <th>Heading 1</th>
+          <th>Heading 2</th>
+          <th>Heading 3</th>
+        </tr>
+        <tr>
+          <td>Data1</td>
+          <td>Data2</td>
+          <td>Data3</td>
+        </tr>
+        <tr>
+          <td>Data1</td>
+          <td>Data2</td>
+          <td>Data3</td>
+        </tr>
+      </table>
+    </div>
+  </body>
+</html>

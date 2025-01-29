@@ -1,0 +1,85 @@
+table,
+td,
+th {
+  border: 1px solid grey;
+  border-collapse: separate;
+}
+
+th {
+  background: lightgrey;
+  padding: 10px;
+}
+
+td {
+  padding: 5px;
+  text-align: right;
+}
+
+tr.me td {
+  background: lightgreen;
+}
+
+.table-collapsed-borders {
+  border-collapse: collapse;
+}
+
+.table-diff-sizes {
+  width: 100%;
+  max-width: 1200px;
+}
+
+.table-diff-sizes .name-table-col {
+  width: 500px;
+  min-width: 200px;
+  max-width: 600;
+}
+
+.table-diff-sizes .first-table-tr {
+  height: 200px;
+}
+
+.stripped-table tr:nth-child(even) {
+  background: lightslategray;
+}
+
+.stripped-table tr {
+  transition: 0.3s all;
+}
+
+.stripped-table tr:nth-child(odd) {
+  background: lightblue;
+}
+
+.stripped-table tr:nth-child(odd):hover {
+  background: lightsalmon;
+}
+
+.stripped-vertical-table td:nth-child(odd),
+.stripped-vertical-table th:nth-child(odd) {
+  background: lightyellow;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.adaptive-table-container {
+  width: 100%;
+  max-width: 1200px;
+  min-width: 350px;
+  display: flex;
+  justify-content: center;
+}
+
+.adaptive-table-container .adaptive-table {
+  width: 100%;
+  border: 0px solid transparent;
+}
+
+.adaptive-table-container .adaptive-table td,
+.adaptive-table-container .adaptive-table th {
+    width: 300px;
+    /* min-width: 200px; */
+    max-width: 300px;
+    overflow: scroll;
+}

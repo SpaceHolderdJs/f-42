@@ -1,0 +1,44 @@
+.small {
+    font-size: 10px;
+}
+
+b {
+    font-weight: 800;
+}
+
+.highlight {
+    background-color: lawngreen;
+}
+
+.cirlce-ul {
+    list-style-type: circle;
+}
+
+.square-ul {
+    list-style-type: square;
+}
+
+.hidden-markers-ul {
+    list-style-type: none;
+}
+
+ .spaced-ol {
+    line-height: 20px;
+}
+
+/* .spaced-ol li {
+    margin: 10px 0;
+}  */
+
+/* .spaced-ol li {
+    height: 50px;
+} */
+
+.cusom-marker-ul {
+    list-style-image: linear-gradient(50deg, red, blue);
+}
+
+.cusom-marker-ul li::marker {
+    width: 100px;
+    height: 100px;
+}

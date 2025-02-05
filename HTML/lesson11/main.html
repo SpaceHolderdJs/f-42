@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./main.css" />
+  </head>
+  <body>
+    <h1>Images</h1>
+    <img
+      src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/512px-Unofficial_JavaScript_logo_2.svg.png"
+    />
+
+    <h2>Picture</h2>
+    <picture>
+      <source
+        media="(min-width: 1300px)"
+        srcset="
+          https://www.creativefabrica.com/wp-content/uploads/2021/09/12/JS-logo-design-vector-Graphics-17172550-1-1-580x386.jpg
+        "
+      />
+      <source
+        media="(min-width: 650px)"
+        srcset="
+          https://w7.pngwing.com/pngs/640/199/png-transparent-javascript-logo-html-javascript-logo-angle-text-rectangle-thumbnail.png
+        "
+      />
+      <img
+        class="logo"
+        src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/512px-Unofficial_JavaScript_logo_2.svg.png"
+      />
+    </picture>
+
+    <h2>Video</h2>
+    <h3>Default video</h3>
+    <video
+      class="default-video"
+      autoplay
+      src="./assets/video-planet.mp4"
+    ></video>
+
+    <section class="video-section">
+      <video
+        autoplay
+        class="background-video"
+        src="./assets/video-planet.mp4"
+      ></video>
+
+      <div class="video-section-content">
+        <article>
+          <h4>Article text</h4>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil
+            natus, rerum repellendus quo quaerat aspernatur molestias distinctio
+            quos rem, enim impedit voluptates. Amet, in blanditiis sunt
+            doloribus hic voluptates expedita?
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <h3>Audio</h3>
+    <audio loop controls src="./assets/sound.mp3"></audio>
+
+    <h3>IFrame</h3>
+    <iframe
+      src="https://www.labk19.com/"
+      width="1500"
+      height="700"
+      title="Iframe"
+    ></iframe>
+    <a target="_top" href="https://www.labk19.com">Link</a>
+
+    <iframe width="500" height="400" src="./frame.html"></iframe>
+
+    <iframe
+      width="560"
+      height="315"
+      src="https://www.youtube.com/embed/fIp-cWEHaCk?si=a3vtZyT8gfdzNT7t"
+      title="YouTube video player"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      referrerpolicy="strict-origin-when-cross-origin"
+      allowfullscreen
+    ></iframe>
+  </body>
+</html>

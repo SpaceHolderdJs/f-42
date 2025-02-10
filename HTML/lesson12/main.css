@@ -1,0 +1,110 @@
+/* px */
+.blur-filter {
+  filter: blur(3.5px);
+}
+
+/* % */
+.contrast-filter {
+  filter: contrast(150%);
+}
+
+/* % */
+.grayscale-filter {
+  filter: grayscale(100%);
+}
+
+/* deg */
+.huerotate-filter {
+  filter: hue-rotate(230deg);
+}
+
+/* % */
+.opacity-filter {
+  filter: opacity(30%);
+}
+
+/* % */
+.sepia-filter {
+  filter: sepia(100%);
+}
+
+/* x, y, intensity, color */
+.drop-shadow-filter {
+  filter: drop-shadow(5px 5px 20px grey);
+}
+
+.drop-shadow-text-filter {
+  filter: drop-shadow(3px 3px 1.5px black);
+}
+
+/* %, 0.1-1 */
+.brightness-filter {
+  filter: brightness(2.5);
+}
+
+.combined-filter-1 {
+  filter: brightness(2.5) contrast(200%) hue-rotate(45deg);
+}
+
+.combined-filter-2 {
+  filter: brightness(2) grayscale(100%) sepia(70%) hue-rotate(300deg);
+}
+
+/* Animations */
+
+@keyframes simple-text-animation {
+  from {
+    box-shadow: 3px 3px 15px 3px black;
+    transform: translateY(-30px) rotateY(0deg);
+    border-radius: 0px;
+  }
+
+  to {
+    box-shadow: 2px 4px 20px 1.5px darkred;
+    transform: translateY(30px) rotateY(360deg);
+    border-radius: 20px;
+  }
+}
+
+@keyframes simple-smooth-text-animation {
+  0% {
+    box-shadow: 3px 3px 15px 3px black;
+    transform: translateY(-30px) rotateY(0deg);
+    border-radius: 0px;
+  }
+
+  50% {
+    box-shadow: 2px 4px 20px 1.5px darkred;
+    transform: translateY(30px) rotateY(360deg);
+    border-radius: 20px;
+  }
+
+  100% {
+    box-shadow: 3px 3px 15px 3px black;
+    transform: translateY(-30px) rotateY(0deg);
+    border-radius: 0px;
+  }
+}
+
+@keyframes filters-animation {
+    from {
+        filter: hue-rotate(0deg);
+    }
+
+    to { 
+        filter: hue-rotate(360deg);
+    }
+}
+
+.text-section {
+  width: 300px;
+  margin: auto;
+}
+
+.animated.animation-simple {
+  animation: simple-smooth-text-animation 10s linear infinite;
+}
+
+.animated.animation-filters {
+    animation: filters-animation 5s linear infinite;
+}

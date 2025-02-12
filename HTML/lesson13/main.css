@@ -1,0 +1,317 @@
+body {
+  /* overflow-x: hidden; */
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(4, 300px);
+  gap: 10px;
+}
+
+.gallery-item {
+  height: 300px;
+}
+
+.gallery-item {
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.gallery-item:nth-child(even) {
+  background-image: url("https://images.unsplash.com/photo-1580014317999-e9f1936787a5?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+}
+
+.gallery-item:nth-child(odd) {
+  background-image: url("https://images.unsplash.com/photo-1569811451056-7cf4bbd3b679?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+}
+
+.gallery-item:nth-child(even) {
+  animation: animated-bg-1 10s linear infinite;
+}
+
+.gallery-item:nth-child(odd) {
+  animation: animated-bg-2 5s linear infinite;
+}
+
+.gallery-item:nth-child(1) {
+  animation: animated-bg-3 1.5s linear 1;
+}
+
+.gallery-item:nth-child(3) {
+  animation: animated-bg-1 4s linear infinite;
+}
+
+@keyframes animated-bg-1 {
+  0% {
+    background-position: 10% center;
+    background-size: 150%;
+    filter: brightness(100%) contrast(100%);
+  }
+
+  50% {
+    background-position: 70% center;
+    background-size: 250%;
+    filter: brightness(150%) contrast(150%) hue-rotate(280deg);
+  }
+
+  100% {
+    background-position: 10% center;
+    background-size: 150%;
+    filter: brightness(100%) contrast(100%);
+  }
+}
+
+@keyframes animated-bg-2 {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.2) rotateY(360deg);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes animated-bg-3 {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* Transformations */
+
+.transform-demo {
+  width: 100%;
+  height: 500px;
+  background: lightsteelblue;
+
+  perspective: 25px;
+
+  /* animation: perspective-animation 5s linear infinite; */
+
+  overflow: hidden;
+}
+
+.transform-demo .square {
+  width: 150px;
+  height: 150px;
+  background: darkred;
+}
+
+.demo-1 {
+  transform: translateX(500px) translateY(-900px);
+  animation: append-from-the-side 5s linear infinite;
+}
+
+@keyframes append-from-the-side {
+  0% {
+    transform: translateX(0px) translateY(-500px);
+  }
+
+  25% {
+    transform: translateX(200px) translateY(350px);
+  }
+
+  50% {
+    transform: translateX(500px) translateY(0px);
+  }
+
+  75% {
+    transform: translateX(200px) translateY(350px);
+  }
+
+  100% {
+    transform: translateX(0px) translateY(-500px);
+  }
+}
+
+.transform-demo-2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.demo-2 {
+  transform: translateZ(-40px);
+  transform: translate3d(30px, 0, -100px);
+  animation: zoom-in-out 5s linear infinite;
+}
+
+@keyframes perspective-animation {
+  from {
+    perspective: 25px;
+  }
+
+  to {
+    perspective: 150px;
+  }
+}
+
+@keyframes zoom-in-out {
+  0%, 100% {
+    transform: translateZ(-140px);
+  }
+
+  50% {
+    transform: translateZ(0px);
+  }
+}
+
+.transform-demo-3 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    perspective: 25px;
+}
+
+.demo-3 {
+    /* transform: translateZ(-30px) scaleX(1.5) scaleY(1.2) scaleZ(1.2) rotateY(60deg); */
+    animation: scale-up-down 4s ease-in-out infinite;
+}
+
+@keyframes scale-up-down {
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.5);
+    }
+}
+
+.transform-demo-4 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    /* perspective: 25px; */
+}
+
+
+.demo-4 {
+    transform: rotateX(310deg);
+    animation: rotate-x-animation 5s linear infinite;
+}
+
+@keyframes rotate-x-animation {
+    0%, 100% {
+        transform: rotateX(0deg);
+    }
+
+    50% {
+        transform: rotateX(180deg);
+    }
+} 
+
+.transform-demo-5 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    /* perspective: 25px; */
+}
+
+.demo-5 {
+    transform: rotateY(45deg);
+    animation: rotate-y-animation 4s linear infinite;
+}
+
+@keyframes rotate-y-animation {
+    0%, 100% {
+        transform: rotateY(0deg);
+    }
+
+    50% {
+        transform: rotateY(180deg);
+    }
+} 
+
+.transform-demo-6 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    /* perspective: 25px; */
+}
+
+.demo-6 {
+    transform: rotateZ(45deg);
+    animation: rotate-z-animation 4s linear infinite;
+}
+
+@keyframes rotate-z-animation {
+    0%, 100% {
+        transform: rotateZ(0deg);
+    }
+
+    50% {
+        transform: rotateZ(180deg);
+    }
+} 
+
+
+.transform-demo-7 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    /* perspective: 25px; */
+}
+
+.demo-7 {
+    transform: skewX(300deg);
+    animation: skew-x-animation 4s linear infinite;
+}
+
+
+.transform-demo-8 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    /* perspective: 25px; */
+}
+
+.demo-8 {
+    transform: skewY(300deg);
+    /* animation: rotate-z-animation 4s linear infinite; */
+    animation: skew-y-animation 4s linear infinite;
+}
+
+@keyframes skew-y-animation {
+    0%, 100% {
+        transform: skewY(0deg);
+    }
+
+    50% {
+        transform: skewY(180deg);
+    }
+}
+
+
+@keyframes skew-x-animation {
+    0%, 100% {
+        transform: skewX(0deg);
+    }
+
+    50% {
+        transform: skewX(180deg);
+    }
+}
+
+/* 
+
+В існуючій grid - сітці картинок
+Застосувати (створити 2 анімації) 
+з значеннями transform (різними з уроку)
+
+*/

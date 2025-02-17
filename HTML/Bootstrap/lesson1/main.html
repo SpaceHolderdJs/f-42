@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./main.css" />
+  </head>
+  <body data-bs-theme="light">
+    <div class="collapse" id="navbarToggleExternalContent" data-bs-theme="dark">
+      <div class="bg-dark p-4">
+        <h5 class="text-body-emphasis h4">Collapsed content</h5>
+        <span class="text-body-secondary"
+          >Toggleable via the navbar brand.</span
+        >
+      </div>
+    </div>
+    <!-- Example of the header -->
+    <nav class="navbar navbar-dark bg-dark">
+      <div class="container-fluid d-flex justify-content-between">
+        <h1>Logo</h1>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarToggleExternalContent"
+          aria-controls="navbarToggleExternalContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+    </nav>
+
+    <button id="change-theme" class="btn btn-primary">Change theme</button>
+
+    <h1>Hello bootstrap</h1>
+    <h3>Buttons</h3>
+    <button class="btn btn-success">Success Button</button>
+    <button class="btn btn-primary">Primary Button</button>
+    <button class="btn btn-secondary">Secondary Button</button>
+    <button class="btn btn-danger">Danger Button</button>
+    <button class="btn btn-info">Info Button</button>
+
+    <h3>Outlined buttons</h3>
+    <button class="btn btn-outline-primary">Primary Button</button>
+    <button class="btn btn-outline-warning">Warning Button</button>
+
+    <h3>Sizings</h3>
+    <button class="btn btn-primary btn-lg">Large Button</button>
+    <button class="btn btn-outline-secondary btn-sm">Small Button</button>
+
+    <h3>States</h3>
+    <button class="btn btn-success" disabled>Disabled Button</button>
+
+    <h2>Dropdown</h2>
+
+    <div class="dropdown">
+      <button
+        class="btn btn-secondary dropdown-toggle btn-lg"
+        data-bs-toggle="dropdown"
+      >
+        Menu
+      </button>
+
+      <ul class="dropdown-menu">
+        <li class="dropdown-item">Option 1</li>
+        <li class="dropdown-item">Option 2</li>
+        <li><hr class="dropdown-divider" /></li>
+        <li class="dropdown-item">Logout</li>
+      </ul>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+
+    <script>
+      const btn = document.getElementById("change-theme");
+
+      btn.onclick = () => {
+        const themeBefore = document.body.getAttribute("data-bs-theme");
+
+        document.body.setAttribute(
+          "data-bs-theme",
+          themeBefore === "dark" ? "light" : "dark"
+        );
+      };
+    </script>
+  </body>
+</html>

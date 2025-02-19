@@ -1,0 +1,12 @@
+.breadcrumb-arrow-wrapper {
+    --bs-breadcrumb-divider: ':';
+}
+
+.list-with-active-color {
+    --bs-list-group-active-bg: var(--bs-success);
+    --bs-list-group-active-border-color: var(--bs-success);
+}
+
+.card-size-lg {
+    max-width: 350px;
+}

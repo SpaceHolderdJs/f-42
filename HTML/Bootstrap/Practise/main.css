@@ -1,0 +1,35 @@
+.bg-main {
+  background: linear-gradient(
+    180deg,
+    rgba(98, 75, 254, 1) 19%,
+    #E7ECEF 19%
+  );
+}
+
+.bg-card-icon {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #DDD9FA;
+    color: #9691CD;
+    font-size: 14px;
+}
+
+.bg-table-header {
+    background: #F7F9F8;
+}
+
+.custom-table {
+    --bs-body-bg: #F7F9F8;
+    --bs-emphasis-color: var(--bs-secondary);
+}
+
+.icon-wrapper {
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

@@ -1,9 +1,29 @@
+:root {
+    --custom-purple: rgba(98, 75, 254, 1);
+}
+
 .bg-main {
-  background: linear-gradient(
+  /* background: linear-gradient(
     180deg,
-    rgba(98, 75, 254, 1) 19%,
+    var(--custom-purple) 21%,
     #E7ECEF 19%
-  );
+  ); */
+
+  background: #E7ECEF;
+}
+
+main {
+    position: relative;
+}
+
+.purple-decorative-element {
+    width: 100%;
+    height: 200px;
+    background: var(--custom-purple);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
 }
 
 .bg-card-icon {
@@ -26,10 +46,74 @@
     --bs-emphasis-color: var(--bs-secondary);
 }
 
+.custom-table tr {
+    vertical-align: middle;
+    height: 65px;
+    --bs-table-bg: white;
+    background: var(--bs-table-bg);
+}
+
+.custom-table thead tr {
+    --bs-table-bg: var(--bs-gray-300);
+    background: var(--bs-table-bg);
+    height: 40px;
+}
+
 .icon-wrapper {
     width: 35px;
     height: 35px;
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.avatars-set {
+    width: 75px;
+}
+
+.avatars-set .avatars-set-item {
+    width: 30px;
+    height: 30px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 1.5px solid white;
+}
+
+.avatars-set .avatars-set-item.counter {
+    background: var(--custom-purple);
+    color: white;
+    font-size: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.avatars-set .avatars-set-item:nth-child(1) {
+    transform: translateX(0px);
+}
+
+.avatars-set .avatars-set-item:nth-child(2) {
+    transform: translateX(-15px);
+}
+
+.avatars-set .avatars-set-item:nth-child(3) {
+    transform: translateX(-30px);
+}
+
+.avatars-set .avatars-set-item:nth-child(4) {
+    transform: translateX(-45px);
+}
+
+.table-progress {
+    max-width: 200px;
+    height: 7px;
+}
+
+.table-progress .progress-bar {
+    background: var(--custom-purple);
+}
+
+.table-progress .progress-bar.completed {
+    background: var(--bs-success);
 }

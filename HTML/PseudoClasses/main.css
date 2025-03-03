@@ -1,0 +1,153 @@
+:root {
+  --my-variable: black;
+}
+
+div section {
+  height: 100px;
+  background: grey;
+  margin: 10px;
+  text-align: center;
+  font-size: 30px;
+  color: white;
+}
+
+div section:first-child {
+  background: purple;
+}
+
+div section:last-child {
+  background: darkred;
+}
+
+div section:nth-child(2) {
+  background: lightgreen;
+}
+
+.nth-example-1 li:nth-child(odd) {
+  background: lightgrey;
+}
+
+.nth-example-2 li:nth-child(even) {
+  background: lightgrey;
+}
+
+.nth-example-3 li:nth-child(-n + 4) {
+  background: lightgrey;
+}
+
+.nth-example-4 li:nth-child(n + 5) {
+  background: lightgrey;
+}
+
+.nth-example-5 li:nth-child(3n) {
+  background: lightgrey;
+}
+
+.nth-example-6 li:nth-child(3n of .list-item) {
+  background: lightgrey;
+}
+
+.nth-example-7 li:nth-child(2n + 5) {
+  background: lightgrey;
+}
+
+.nth-example-8 li:nth-last-child(-n + 3) {
+  background: lightskyblue;
+}
+
+.nth-example-9 article:nth-of-type(2n + 1) {
+  background: lightcoral;
+}
+
+.nth-example-9 article:nth-of-type(1) {
+  background: orangered;
+}
+
+.pseudo-example-1:empty {
+  height: 20px;
+  background: lightseagreen;
+}
+
+.pseudo-example-2 li:only-child {
+  background: cadetblue;
+}
+
+.pseudo-example-3 p:not(.super-paragraph) {
+  text-decoration: line-through;
+}
+
+.pseudo-example-4 p:is(.super-paragraph) {
+  text-decoration: line-through;
+}
+
+.pseudo-example-5 li:where(.second-list-item) {
+  text-decoration: underline;
+}
+
+.pseudo-example-6 ul {
+  border: 2px black dashed;
+}
+/* Opposite to :empty (partly) */
+
+.pseudo-example-6 ul:has(.danger) {
+  border: 2px dashed darkred;
+}
+
+.pseudo-example-7 {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  gap: 10px;
+}
+
+.pseudo-example-7 input:autofill {
+  border: 2px dashed black;
+}
+
+.pseudo-example-7 input:read-only {
+  border: 2px dashed grey;
+}
+
+.pseudo-example-7 input:disabled,
+button:disabled {
+  border: 2px dashed darkred;
+}
+
+.pseudo-example-7 input:checked {
+  transform: scale(1.5);
+}
+
+.pseudo-example-7 input[type="email"]:valid {
+  border: 2px dashed limegreen;
+}
+
+.pseudo-example-7 input[type="email"]:invalid {
+  border: 2px dashed darkred;
+}
+
+.pseudo-example-7 input:required {
+  border: 2px dashed goldenrod;
+}
+
+.pseudo-example-8,
+.pseudo-example-9,
+.pseudo-example-10 {
+  transition: 0.4s all;
+}
+
+.pseudo-example-8:hover {
+  transform: scale(1.5);
+  background-color: aquamarine;
+}
+
+.pseudo-example-9:focus {
+  transform: rotateZ(20deg);
+}
+
+.pseudo-example-10:active {
+  background: rebeccapurple;
+}
+
+/* H/W */
+
+/* Використати 5-7 псевдо-класів з уроку (будь які приклади) */

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./main.css" />
+  </head>
+  <body>
+    <h1>Pseudo-classes</h1>
+    <div>
+      <section>1</section>
+      <section>2</section>
+      <section>3</section>
+    </div>
+
+    <div>
+      <section>1</section>
+      <section>2</section>
+      <section>3</section>
+    </div>
+
+    <h3>Odd</h3>
+    <ul class="nth-example-1">
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+      <li>4</li>
+      <li>5</li>
+      <li>6</li>
+      <li>7</li>
+      <li>8</li>
+    </ul>
+
+    <h3>Even</h3>
+    <ul class="nth-example-2">
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+      <li>4</li>
+      <li>5</li>
+      <li>6</li>
+      <li>7</li>
+      <li>8</li>
+    </ul>
+
+    <h3>First (n) of the child's</h3>
+    <ul class="nth-example-3">
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+      <li>4</li>
+      <li>5</li>
+      <li>6</li>
+      <li>7</li>
+      <li>8</li>
+    </ul>
+
+    <h3>All the elements after special</h3>
+    <ul class="nth-example-4">
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+      <li>4</li>
+      <li>5</li>
+      <li>6</li>
+      <li>7</li>
+      <li>8</li>
+    </ul>
+
+    <h3>Each (n) element</h3>
+    <ul class="nth-example-5">
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+      <li>4</li>
+      <li>5</li>
+      <li>6</li>
+      <li>7</li>
+      <li>8</li>
+      <li>9</li>
+    </ul>
+
+    <h3>More specific selector</h3>
+    <ul class="nth-example-6">
+      <li class="list-item">1</li>
+      <li class="list-item">2</li>
+      <li class="list-item">3</li>
+      <li class="list-item">4</li>
+      <li class="list-item">5</li>
+      <li class="list-item">6</li>
+      <li class="list-item">7</li>
+      <li class="list-item">8</li>
+      <li class="list-item">9</li>
+    </ul>
+
+    <h3>More complicated formulas</h3>
+    <ul class="nth-example-7">
+      <li class="list-item">1</li>
+      <li class="list-item">2</li>
+      <li class="list-item">3</li>
+      <li class="list-item">4</li>
+      <li class="list-item">5</li>
+      <li class="list-item">6</li>
+      <li class="list-item">7</li>
+      <li class="list-item">8</li>
+      <li class="list-item">9</li>
+      <li class="list-item">10</li>
+      <li class="list-item">11</li>
+    </ul>
+
+    <h3>NTH-Last child</h3>
+    <ul class="nth-example-8">
+      <li class="list-item">1</li>
+      <li class="list-item">2</li>
+      <li class="list-item">3</li>
+      <li class="list-item">4</li>
+      <li class="list-item">5</li>
+      <li class="list-item">6</li>
+      <li class="list-item">7</li>
+      <li class="list-item">8</li>
+      <li class="list-item">9</li>
+      <li class="list-item">10</li>
+      <li class="list-item">11</li>
+    </ul>
+
+    <h3>NTH-of-type</h3>
+    <div class="nth-example-9">
+      <p>P0</p>
+      <article>A1</article>
+      <p>P1</p>
+      <article>A2</article>
+      <article>A3</article>
+      <article>A4</article>
+      <p>P2</p>
+      <p>P3</p>
+    </div>
+
+    <hr />
+
+    <h3>Empty</h3>
+    <div class="pseudo-example-1"></div>
+
+    <h3>Only child</h3>
+    <ul class="pseudo-example-2">
+      <li>The only item here</li>
+    </ul>
+
+    <h2>Functional pseudo-classes</h2>
+    <h3>NOT :not()</h3>
+
+    <div class="pseudo-example-3">
+      <p class="paragraph">P1</p>
+      <p>P2</p>
+      <p class="super-paragraph">P3</p>
+    </div>
+
+    <h3>IS :is()</h3>
+    <div class="pseudo-example-4">
+      <p class="paragraph">P1</p>
+      <p>P2</p>
+      <p class="super-paragraph">P3</p>
+    </div>
+
+    <h3>Where :where()</h3>
+    <div class="pseudo-example-5">
+      <ul>
+        <li>1</li>
+        <li class="second-list-item">2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+      </ul>
+    </div>
+
+    <h3>Has :has()</h3>
+    <div class="pseudo-example-6">
+      <ul>
+        <li>1</li>
+        <li>2</li>
+        <li class="danger">3</li>
+      </ul>
+    </div>
+
+    <h2>Form-based classes</h2>
+    <form class="pseudo-example-7">
+      <input type="email" placeholder="Email" />
+      <input type="text" disabled />
+      <input type="text" placeholder="Read only" readonly />
+      <input type="checkbox" checked />
+      <input type="email" placeholder="Email (possibly invalid)" />
+      <input type="text" required placeholder="Required text"/>
+      <input type="text" />
+      <input type="text" />
+      <input type="text" />
+      <button disabled >Submit</button>
+    </form>
+
+
+    <h2>Basic pseudo-classes</h2>
+    <button class="pseudo-example-8">Hover me</button>
+    <button class="pseudo-example-9">Focus me</button>
+    <button class="pseudo-example-10">Activate me</button>
+  </body>
+</html>

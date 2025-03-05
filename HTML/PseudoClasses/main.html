@@ -189,17 +189,44 @@
       <input type="text" placeholder="Read only" readonly />
       <input type="checkbox" checked />
       <input type="email" placeholder="Email (possibly invalid)" />
-      <input type="text" required placeholder="Required text"/>
+      <input type="text" required placeholder="Required text" />
       <input type="text" />
       <input type="text" />
       <input type="text" />
-      <button disabled >Submit</button>
+      <button disabled>Submit</button>
     </form>
-
 
     <h2>Basic pseudo-classes</h2>
     <button class="pseudo-example-8">Hover me</button>
     <button class="pseudo-example-9">Focus me</button>
     <button class="pseudo-example-10">Activate me</button>
+
+    <h2>Links</h2>
+    <a class="pseudo-example-11" href="https://google.com">Google link</a>
+    <a href="#">Default link</a>
+    <a class="pseudo-example-12" href="https://facebook.com">Facebook link</a>
+    <br />
+    <a id="link" class="pseudo-example-13" href="#element-as-target"
+      >Link to a local element on the page</a
+    >
+    <div id="element-as-target" class="element-as-target">
+      <h1>Target</h1>
+    </div>
+
+    <video
+      class="pseudo-example-14"
+      controls
+      src="./assets/video-planet.mp4"
+    ></video>
+
+    <script>
+      const link = document.getElementById("link");
+      const target = document.getElementById("element-as-target");
+
+      link.onclick = (event) => {
+        event.preventDefault();
+        target.scrollIntoView({ behavior: "smooth" });
+      };
+    </script>
   </body>
 </html>

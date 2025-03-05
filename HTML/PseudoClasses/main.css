@@ -151,3 +151,31 @@ button:disabled {
 /* H/W */
 
 /* Використати 5-7 псевдо-класів з уроку (будь які приклади) */
+
+.pseudo-example-11:visited {
+    color: black;
+}
+
+.pseudo-example-12:link {
+    color: grey;
+    text-decoration: none;
+    font-weight: bolder;
+}
+
+.element-as-target {
+    height: 100vh;
+    background: grey;
+    margin-top: 100vh;
+}
+
+.pseudo-example-13:target {
+    background: red;
+}
+
+/* .pseudo-example-14:playing {
+    border: 5px solid red;
+}
+
+.pseudo-example-14:paused {
+    border: 5px solid red;
+} */

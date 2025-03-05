@@ -1,0 +1,128 @@
+.pseudo-element-example-1::first-line {
+  text-decoration: underline;
+  color: red;
+}
+
+.pseudo-element-example-1::first-letter {
+  font-size: 20px;
+  font-weight: bolder;
+  color: blue;
+}
+
+.pseudo-element-example-2::selection {
+  background: lightsalmon;
+  color: grey;
+}
+
+.pseudo-element-example-3::spelling-error {
+  color: darkred;
+  text-decoration: none;
+}
+
+.pseudo-element-example-4::grammar-error {
+    background: purple;
+}
+
+.pseudo-element-example-5::before {
+    content: "🤔";
+    font-size: 25px;
+}
+
+.pseudo-element-example-6::before {
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+    content: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQibkXkmxZVCfBPEMPzeMX7PZOc0M16mGmO6Q&s");
+}
+
+.pseudo-element-example-7::before {
+    content: "* We wont share that data with anyone";
+    display: flex;
+    color: grey;
+    margin-top: 15px;
+    font-size: 10px;
+}
+
+.pseudo-element-example-7::after {
+    content: "Please enter a valid email";
+    display: flex;
+    color: darkred;
+    font-size: 10px;
+}
+
+.pseudo-element-example-8::placeholder {
+    color: purple;
+}
+
+.pseudo-element-example-9 {
+    margin-top: 50px;
+    transition: 0.3s all;
+}
+
+.pseudo-element-example-9 input {
+    border: none;
+    border-bottom: 2px solid black;
+    outline: none;
+}
+
+.pseudo-element-example-9 .label {
+    content: "Enter the data";
+    font-size: 12px;
+    transition: 0.4s all;
+    transform: translateX(4px) translateY(18px);
+    display: flex;
+    pointer-events: none;
+}
+
+.pseudo-element-example-9:hover >.label {
+    transform: translateX(4px) translateY(0px);
+}
+
+.pseudo-element-example-11 {
+    margin-top: 50px;
+    max-width: 400px;
+    background: lightgrey;
+    padding: 10px;
+    border-radius: 4px;
+    position: relative;
+}
+
+.pseudo-element-example-11::before {
+    content: "";
+    width: 5px;
+    height: 80px;
+    display: block;
+    position: absolute;
+    left: 11px;
+    bottom: 0px;
+    background: rgb(45, 44, 44);
+    transition: 0.4s all;
+}
+
+.pseudo-element-example-11::after {
+    content: "";
+    width: 5px;
+    height: 80px;
+    display: block;
+    position: absolute;
+    right: 11px;
+    top: 0px;
+    background: rgb(45, 44, 44);
+    transition: 0.4s all;
+}
+
+.pseudo-element-example-11 article {
+    padding-left: 10px;
+}
+
+.pseudo-element-example-11 article::before {
+    content: "“";
+    font-size: 20px;
+    color: rgb(41, 41, 41);
+}
+
+.pseudo-element-example-11 article::after {
+    content: "„";
+    font-size: 20px;
+    color: rgb(41, 41, 41);
+}

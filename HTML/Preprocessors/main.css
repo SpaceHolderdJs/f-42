@@ -1,0 +1,97 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+* {
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.main {
+  width: 100%;
+  min-height: 100vh;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.main .hero-section {
+  background: lightgrey;
+  width: 80%;
+  box-shadow: 2px 2px 10px 0.5px grey;
+  padding: 10px;
+}
+.main .hero-section .text-block {
+  font-size: 25px;
+}
+.main .hero-section .text-block p {
+  margin: 5px;
+}
+.main .hero-section .text-block p::first-letter {
+  color: darkred;
+}
+
+.btn.btn-primary {
+  outline: none;
+  border: none;
+  font-size: 20px;
+  padding: 5px;
+  border-radius: 5px;
+  background: lightseagreen;
+  color: white;
+  cursor: pointer;
+}
+
+.btn.btn-secondary {
+  outline: none;
+  border: none;
+  font-size: 20px;
+  padding: 5px;
+  border-radius: 5px;
+  background: grey;
+  color: white;
+  cursor: pointer;
+}
+
+.btn.btn-danger {
+  outline: none;
+  border: none;
+  font-size: 20px;
+  padding: 5px;
+  border-radius: 5px;
+  background: darkred;
+  color: white;
+  cursor: pointer;
+}
+
+.btn.btn-warning {
+  outline: none;
+  border: 2px dashed black;
+  font-size: 20px;
+  padding: 5px;
+  border-radius: 5px;
+  background: rgb(151, 131, 18);
+  color: white;
+  cursor: pointer;
+}
+
+.secondary-section {
+  width: 80%;
+  margin: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  background: rgb(87, 167, 194);
+}
+.secondary-section img {
+  width: 500px;
+  height: 500px;
+  object-fit: cover;
+}
+
+.another-section {
+  background: yellowgreen;
+}

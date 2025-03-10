@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@import "./variables.scss";
+
+@mixin button($background: lightseagreen, $border: none) {
+    outline: none;
+    border: $border;
+
+    font-size: 20px;
+    padding: 5px;
+    border-radius: 5px;
+    background: $background;
+    color: white;
+    cursor: pointer;
+}
+
+@mixin section($type: hero) {
+    @if $type == hero {
+        background: lightgrey;
+    } @else if $type == secondary {
+        width: 80%;
+        margin: 15px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 5px;
+        background: rgb(87, 167, 194);
+
+        img {
+            width: 500px;
+            height: 500px;
+            object-fit: cover;
+        }
+    } @else {
+        background: yellowgreen;
+    }
+}
+
+* {
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.main {
+    width: 100%;
+    min-height: 100vh;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .hero-section {
+        @include section(hero);
+        width: 80%;
+        box-shadow: 2px 2px 10px 0.5px grey;
+        padding: 10px;
+
+        .text-block {
+            font-size: $font-size-l;
+
+            p {
+                margin: 5px;
+            }
+
+            p::first-letter {
+                color: $first-letter-color;
+            }
+        }
+    }
+}
+
+.btn.btn-primary {
+    @include button;
+}
+
+.btn.btn-secondary {
+    @include button(grey);
+}
+
+.btn.btn-danger {
+    @include button(darkred);
+}
+
+.btn.btn-warning {
+    @include button(rgb(151, 131, 18), 2px dashed black);
+}
+
+.secondary-section {
+    @include section(secondary);
+}
+
+.another-section {
+    @include section(abcd);
+}

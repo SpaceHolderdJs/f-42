@@ -1,0 +1,154 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.main section {
+    height: 50px;
+    background: grey;
+    margin: 5px;
+}
+// to - excludes target value (10 -> 9)
+// through - includes target value (10 -> 10)
+@for $i from 1 through 10 {
+    @keyframes section-animation {
+        from {
+            width: 0px;
+        }
+    
+        to {
+            width: (100 * $i)px;
+        }
+    }
+
+    .main section:nth-child(#{$i}) {
+        width: 100px * $i;
+        animation: section-animation 2s linear 1;
+        background: rgb(50, 120, 50 + $i * 10);
+        display: flex;
+        align-items: end;
+
+        @for $articleCount from 1 through 3 {
+            article:nth-child(#{$articleCount}) {
+                width: 10px;
+                height: $articleCount * 10px;
+                background: orangered;
+                margin: 5px;
+                // content: "#{$articleCount} article:)";
+            }
+        }
+    }
+
+    .main section:nth-child(#{$i})::after {
+        content: "#{$i}";
+        color: white;
+        font-size: 30px;
+    }
+}
+
+
+.graph {
+    $basis-color-x: linear-gradient(90deg, black, blue, lightblue);
+    $basis-color-y: linear-gradient(180deg, lightblue, blue, black);
+
+    $graph-background: linear-gradient(90deg, lightblue 30%, rgba(204, 223, 229, 0.3) 70%);
+
+    $graph-data: 60, 50, 200, 110, 160, 170, 50, 250, 210, 200;
+
+    display: flex;
+    flex-direction: column;
+    width: 700px;
+    height: 500px;
+    position: relative;
+    margin: 5px;
+    background: $graph-background;
+
+    .graph-data-item {
+        width: 7px;
+        height: 7px;
+
+        border-radius: 50%;
+
+        background: darkblue;
+        position: absolute;
+        // visibility: hidden;
+        z-index: 1;
+    }
+
+    $i: 1;
+    @each $value in $graph-data {
+
+        @keyframes append-data-item {
+            from {
+                bottom: 0px;
+            }
+    
+            to {
+                bottom: $value * 1.5px;
+            }
+        }
+
+        .graph-data-item:nth-child(#{$i}) {
+            left: $i * 40px;
+            bottom: $value * 1.5px;
+            visibility: visible;
+            animation: append-data-item $i * 0.3s linear 1;
+        }
+
+        .graph-data-item:nth-child(#{$i})::after {
+            content: "#{$value}";
+            display: block;
+            text-align: center;
+            width: 50px;
+            transform: translate(-22px, 5px);
+            font-size: 12px;
+        }
+
+        $i: $i + 1;
+    }
+
+    .x-basis {
+        height: 5px;
+        width: 100%;
+        background: $basis-color-x;
+        position: absolute;
+        bottom: 0;
+
+        display: flex;
+        gap: 35px;
+
+    
+
+        @for $i from 1 through 20 {
+            .pointer:nth-child(#{$i}) {
+                width: 2px;
+                background: white;
+            }
+
+            .pointer:nth-child(#{$i})::after {
+                content: "#{$i * 35}";
+                font-size: 10px;
+            }
+        }
+    }
+
+    .y-basis {
+        width: 5px;
+        height: 100%;
+        background: $basis-color-y;
+        position: absolute;
+        left: 0;
+    }
+}
+
+// Завдання:
+// Реалізувати графік зі стовпцями на базі графіків з уроку
+// $graph-data-2: 100, 150, 100, 200, 50, 100, 100
+// 1. Зверстати графік (направляючі x, y)
+// 2. Зверстати елементи для відображення даних
+// 3. Використати @each з лічильником для реалізації відображення даних
+// 4. Стилізувати графік від себе додатково

@@ -128,3 +128,82 @@ const sentence1 =
 
 // Замінити всі пробіли на "--"
 // Вивести нову строку
+
+console.log(sentence1.replaceAll("amet", "****"), "task1");
+console.log(sentence1.toLowerCase().includes("lorem".toLowerCase()), "task2");
+console.log(sentence1.replaceAll(" ", "--"), "task3");
+
+console.log("Hello"[0]);
+console.log("Hello"[9]);
+console.log("Hello".length);
+// H - 0
+// e - 1
+// l - 2
+// l - 3
+// 0 - 4
+
+const strExample = "Hello!".repeat(10);
+
+console.log(strExample[strExample.length - 1]);
+console.log(strExample[1 + 5]);
+console.log(strExample["c"]);
+
+const string1 = "Hello world!";
+const check1 = string1.includes("Hello");
+
+const string2 = "Password";
+const check2 = string2.includes("P");
+
+if (check1) {
+  console.log("Check 1 has been passed");
+}
+
+if (check2) {
+  console.log("Password has P on the first position");
+}
+
+if (string2 === "Password") {
+  console.log("Password is correct!");
+} else {
+  console.log("Password is wrong!");
+}
+
+if (string2.includes("P") && string2.includes("o")) {
+  console.log("Password has both, letter P and letter o");
+}
+
+if (string2.length <= 5) {
+  console.log("Password has less than 5 symbols");
+} else {
+  console.log("Password has more than 5 symbols");
+}
+
+// Ternar operator
+console.log(
+  `Password has ${string2.length <= 5 ? "less" : "more"} than 5 symbols`
+);
+
+// Falsy, false - like
+const emptyString = "";
+
+if (emptyString) {
+  console.log("Empty string console");
+}
+
+console.log(Boolean(true && "" && true));
+
+// Завдання
+
+const password1 = "password1";
+const password2 = "password2";
+
+// Порівняти паролі (1 - 2) (===) та вивести "Passwords are same" якщо
+// вони рівні, та "Passwords are not equal" якщо ні (if-else)
+
+let isPassword1Valid = false;
+let isPassword2Valid = false;
+
+// Первірити обидва пароля на наявність літери (w)
+// ТА на кількість символів більше за 9 (&&)
+
+// Якщо один з паролів містить цифру 2 - вивести true (||)

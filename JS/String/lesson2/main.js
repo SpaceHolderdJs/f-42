@@ -141,10 +141,30 @@ console.log(
 );
 
 // Завдання:
-const symbols = "-_-----_--_--_-_-_-_-_-";
+const symbols = "-_-----_--_--_-_-_-_-_-0";
+
+let minuses = 0;
+let dashes = 0;
+
+let zeros = 0;
 
 for (const s of symbols) {
+  if (s === "-") {
+    minuses = minuses + 1;
+  }
+
+  if (s === "_") {
+    dashes = dashes + 1;
+  }
+
+  if (s === "0") {
+    zeros = zeros + 1;
+  }
 }
+
+console.log(minuses, dashes, zeros);
+
+console.log(minuses > dashes ? `${minuses} minuses` : `${dashes} dashes`);
 
 // Порахувати символи "-" та "_"
 // Вивести той символ, якого більше у строці

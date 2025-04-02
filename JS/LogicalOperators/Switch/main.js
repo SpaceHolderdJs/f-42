@@ -112,14 +112,46 @@ let status = 201;
 // default - 500
 // break!;
 
-// 2.
-let x = 0;
+switch (status) {
+  case 200: {
+    console.log("OK");
+    break;
+  }
 
-const part1 = 2 * x + 3 * x;
-const part2 = x * 0;
+  case 201: {
+    console.log("Created");
+    break;
+  }
+
+  case 204: {
+    console.log("No Content");
+    break;
+  }
+
+  case 500:
+  default: {
+    console.log("Internal server error");
+    break;
+  }
+}
+
+// 2.
+// let x = 0;
 
 // Написати for з лічильником, підбираючи значення для x
 // [-15, 15] + 1
 // Якщо значення знайшлося раніше - зупиняти цикл
 // Вивести значення (корінь рівняння x)
 // part1 === part2
+
+for (let x = -100; x <= 100; x = x + 1) {
+  const part1 = 2 * x + 3 * x;
+  const part2 = x * 0;
+
+  if (part1 === part2) {
+    console.log(`The solution is: ${x}`);
+    break;
+  } else {
+    console.log(`Solution ${x} is wrong`);
+  }
+}

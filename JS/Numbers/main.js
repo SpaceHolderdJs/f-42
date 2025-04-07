@@ -107,23 +107,34 @@ parseInt();
 const alphabet = "abcdefghijklmnopqrstuvwxyz";
 
 let word = "hello from js";
-let sum = 0;
+let sum1 = 0;
 
 // Порахувати суму індексів всіх літер, що є у строці word, спираючись на alphabet
 // Пробіли та інші розділові знаки рахуються за 0
 
 // indexOf
 
-console.log(alphabet.indexOf("b"));
+for (const symbol of word) {
+  const index = alphabet.indexOf(symbol);
+
+  if (index < 0) continue;
+
+  sum1 = sum1 + index;
+}
+
+console.log(sum1, "sum");
 
 // Завдання:
 
 const n5 = 0.78136;
-let symbolsAfterComma = 3;
+let symbolsAfterComma = 5;
 
-// Реалізувати логіку методу .toFixed()
-// на числі n5
+const numberAsString = `${n5}`;
+const indexOfDot = numberAsString.indexOf(".");
 
-// (0.5555).toFixed(symbolsAfterComma) => 0.781
-// slice, indexOf, toString
-// повернути строку (string)
+if (indexOfDot !== -1) {
+  const fixedValue =
+    numberAsString.slice(0, indexOfDot) +
+    numberAsString.slice(indexOfDot, indexOfDot + symbolsAfterComma + 1);
+  console.log(fixedValue, "fixedValue");
+}

@@ -152,16 +152,29 @@ let isCartReady = ordersCount > 5 && "yes";
 
 console.log(isCartReady);
 
-alert("Hello");
+// alert("Hello");
 
-const name1 = prompt("Enter your name");
-console.log(name1, "name1");
+// const name1 = prompt("Enter your name");
+// console.log(name1, "name1");
 
 // Завдання:
 // 1.
-const value = 10;
+const value = Math.floor(Math.random() * 10);
+console.log(value, "value");
+const attempts = 3;
 
-const guess = +prompt("Guess a number between 1 and 10");
+// for (let i = 0; i < attempts; i = i + 1) {
+//   const guess = prompt("Guess a number between 1 and 10");
+
+//   if (guess === null) break;
+
+//   if (guess && value === +guess) {
+//     alert(`Correct! The number was ${value}, congratulations!`);
+//     break;
+//   }
+
+//   alert(`No, the number ${guess} is not the value we need :(`);
+// }
 
 // Дати користувачеві 4 спроби вгадати число
 // Якщо він вгадав - вивести alert/console.log з вітаннями
@@ -171,7 +184,7 @@ const guess = +prompt("Guess a number between 1 and 10");
 
 // 2
 
-const loginAttempts = 0;
+let loginAttempts = 0;
 
 const password = "password";
 const inputPassword = "password";
@@ -183,3 +196,32 @@ const inputPassword = "password";
 // Якщо це так і паролі (password, inputPassword)
 //  співпадають - вивести alert("Login Successful")
 // якщо ні - вивести alert("Bad Login")
+
+// if (loginAttempts && loginAttempts > 0) {
+//   if (password === inputPassword) alert("Login Successful");
+// } else {
+//   alert("Bad login");
+// }
+
+// alert(
+//   +loginAttempts > 0 && password === inputPassword
+//     ? "Login Successful"
+//     : "Bad Login"
+// );
+
+console.log(
+  +loginAttempts > 0 && password === inputPassword
+    ? "Login Successful"
+    : "Bad Login"
+);
+
+// if (!true) {
+// }
+
+// if (true) true ? fn1() : fn2();
+
+// fn1(true ? "a" : "b");
+
+// const b = true && fn1();
+
+// true ? "a" : false ? "a" : "b";

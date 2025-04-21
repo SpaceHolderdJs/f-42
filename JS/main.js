@@ -54,3 +54,23 @@ const a4 = 30;
 const avg = 0;
 // Порахувати середнє арифметичне чисел (a1, a2, a3, a4)
 // Вивести у консоль
+
+// Завдання:
+const user = { name: "Igor" };
+
+// Додати до user поле (ключ) length
+// яке є кількістю символів його імені
+// number
+
+// {name: "Igor", length: 4}
+
+// Завдання
+
+const point1 = { x: 10, y: 3, z: 10 };
+const point2 = { x: -1, y: 1, z: 6 };
+
+const averagePoints = {};
+
+// Порахувати Середнє арифметичне точок x,y,z і записати їх у averagePoints
+
+// {x: 4.5, y: 2, z: 8}

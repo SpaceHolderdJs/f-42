@@ -56,7 +56,11 @@ const avg = 0;
 // Вивести у консоль
 
 // Завдання:
-const user = { name: "Igor" };
+const user1 = { name: "John Smith" };
+
+user1.length = user1.name.length;
+
+console.log(user1, "user1");
 
 // Додати до user поле (ключ) length
 // яке є кількістю символів його імені
@@ -69,8 +73,18 @@ const user = { name: "Igor" };
 const point1 = { x: 10, y: 3, z: 10 };
 const point2 = { x: -1, y: 1, z: 6 };
 
-const averagePoints = {};
+const averagePoints = {
+  x: (point1.x + point2.x) / 2,
+  y: (point1.y + point2.y) / 2,
+  z: (point1.z + point2.z) / 2,
+};
 
+// averagePoints.x = (point1.x + point2.x) / 2;
+// averagePoints.y = (point1.y + point2.y) / 2;
+// averagePoints.z = (point1.z + point2.z) / 2;
+
+console.log(averagePoints, "averagePoints");
+console.table(averagePoints);
 // Порахувати Середнє арифметичне точок x,y,z і записати їх у averagePoints
 
 // {x: 4.5, y: 2, z: 8}

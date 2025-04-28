@@ -166,3 +166,12 @@ const users = {
 // Порахувати суми всіх довжин всіх імен користувачів
 // for (in)
 //
+
+let sumOfAllLength = 0;
+
+for (const key in users) {
+  const value = users[key];
+  sumOfAllLength = sumOfAllLength + value.length;
+}
+
+console.log(sumOfAllLength, "sum of all length");

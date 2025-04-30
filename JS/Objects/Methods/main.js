@@ -242,3 +242,26 @@ const hwUsers = {
 // score адмінів рахується двічі (*2)
 
 // 3 - Вивести переможця за score (максимальний)
+
+let totalScore = 0;
+let maxScoreUser = hwUsers[0];
+
+for (const user in hwUsers) {
+  const userData = hwUsers[user];
+
+  if (maxScoreUser.score < userData.score) {
+    maxScoreUser = userData;
+    // maxScoreUser = hwUsers[user];
+  }
+  
+  if (userData.role === "ADMIN") {
+    Object.freeze(userData);
+    totalScore = totalScore + userData.score * 2;
+  } else {
+    totalScore = totalScore + userData.score;
+  }
+  
+}
+
+console.log(totalScore, "totalScore");
+console.log(maxScoreUser, "maxScoreUser");

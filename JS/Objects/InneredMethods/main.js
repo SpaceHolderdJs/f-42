@@ -194,16 +194,42 @@ console.log(obj5, "!!!");
 // console.log(obj6, obj6.a);
 
 // Завдання:
-// 
+//
 const analytics = {
   aov: 10,
   btw: 40,
   avg: 70,
   xoz: 100,
-  total: 240
-}
+  total: 240,
+};
 
 // Всім показникам, що:
 // - Вище за 40 заборонити видимість у циклі
 // - Кратні 40 if (n % 40 === 0) {} заборонити їх ЗМІНИ та ВИДАЛЕННЯ
-// for - in 
+// for - in
+
+for (const paramName in analytics) {
+  const paramValue = analytics[paramName];
+
+  if (paramValue > 40) {
+    Object.defineProperty(analytics, paramName, {
+      enumerable: false,
+      writable: true,
+      configurable: true,
+    });
+  }
+
+  if (paramValue % 40 === 0) {
+    Object.defineProperty(analytics, paramName, {
+      enumerable: true,
+      writable: false,
+      configurable: false,
+    });
+  }
+
+  console.log(paramValue, "pramValue");
+}
+
+for (const key in analytics) {
+  console.log(key, analytics[key], "!!!");
+}

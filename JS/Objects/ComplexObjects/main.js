@@ -152,10 +152,30 @@ const structure = {
   2: { a: 2, b: 2, c: 3 },
   3: "data-4",
   // OPTIONAL
-  4: null
+  4: null,
 };
+
+for (const key in structure) {
+  const value = structure[key];
+
+  if (value && typeof value === "object") {
+    for (const subKey in value) {
+      const subValue = value[subKey];
+      sum1 = sum1 + subValue;
+    }
+  }
+}
+
+console.log(sum1, "sum1");
+
+const copy = structuredClone(structure);
+
+structure[0] = "data-changed";
+
+console.log(copy, "copy");
+console.log(structure, "structure");
 
 // У всіх значеннях structure, тип яких object (typeof)
 // 1. Порахувати суму елемeнтів (for in + for in) = 13
-// 2. Створити безпечну та глибоку копію structure 
+// 2. Створити безпечну та глибоку копію structure
 // + перевірити безпечність (щось змінити)

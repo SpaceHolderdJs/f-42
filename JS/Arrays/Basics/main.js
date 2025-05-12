@@ -154,13 +154,11 @@ const nums = [1, 2, 3, 4, 5];
 console.log(nums.reverse(), "reverse");
 console.log(nums, "original array");
 
-
 // immutable
 const nums2 = [1, 2, 3, 4, 5];
 
 console.log(nums2.toReversed(), "toReversed");
 console.log(nums2, "original array");
-
 
 // fill
 const arrToFill = [];
@@ -170,20 +168,46 @@ arrToFill.fill(100);
 
 console.log(arrToFill, "fill");
 
-
 // Завдання:
 
-// 1. 
+// 1.
 const arr4 = [200, 40, 10, 20, 40, 60];
+
+let sum = 0;
+
+for (const number of arr4) {
+  sum = sum + number;
+}
+
+console.log(sum, "sum");
+
+console.log(
+  arr4.reduce((sum, el) => (sum += el), 0),
+  "reduce sum"
+);
 // Порахувати суму чисел arr4 (for - of)
 // *[optional] - reduce
 
-// 2. 
+// 2.
 const arr5 = ["hello", "hola", "hi"];
 // Перегорнути масив (змінити порядок на зворотній immutable)
+const reversedArr5 = arr5.toReversed();
+
+console.log(reversedArr5, "reversedArr5");
+console.log(arr5, "original data");
 
 // 3. *
 const arr6 = ["-", "--", "-", "---", "-"];
 // Порахувати середнє арифметичне кількості знаків -
 // 7 / 4
 // for - of, length
+
+let sum1 = 0;
+
+for (const minusStr of arr6) {
+  sum1 = sum1 + minusStr.length;
+}
+
+const avg = sum1 / arr6.length;
+
+console.log(avg , "avg");

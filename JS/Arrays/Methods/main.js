@@ -94,20 +94,43 @@ strs.forEach((el, i, arr) => console.log(el, i, arr, "forEach short"));
 strs.forEach(console.log);
 
 const hello = (name) => {
-    console.log(`Hello, ${name}`);
+  console.log(`Hello, ${name}`);
 };
 
 const namesToGreet = ["Olexandr", "Petro", "Katerina", "Tetiana"];
 
 namesToGreet.forEach(hello);
 
-
 const sum2 = (a, b) => console.log(a + b);
 sum2(10, 20);
 
 // Завдання:
-const results = [true, true, false, false, false];
+
+const booleanCount = {
+  true: 0,
+  false: 0,
+};
+
+const results = [true, true, true, true, false, false, false];
 // За допомогою forEach порахувати всі true/false (окремо) - вивести той boolean, якого більше (false)
+
+// results.forEach((bool) => {
+//   if (bool) {
+//     booleanCount.true = booleanCount.true + 1;
+//   } else {
+//     booleanCount.false = booleanCount.false + 1;
+//   }
+// });
+
+// if (booleanCount.true > booleanCount.false) {
+//   console.log("True");
+// } else {
+//   console.log("False");
+// }
+
+results.forEach((bool) => (booleanCount[bool] = booleanCount[bool] + 1));
+
+console.log(booleanCount.true > booleanCount.false ? "True" : "False");
 
 let isAllOfThemEndsWithZero = true;
 
@@ -115,3 +138,20 @@ const numbers = [10, 20, 30, 40, 50];
 
 // перегорнути масив (imutable), якщо кожна цифра закінчується на 0
 // forEach/for-of
+let result = numbers;
+
+// for (const num of numbers) {
+//   if (`${num}`.endsWith("0")) {
+//     result = result.toReversed();
+//     break;
+//   }
+// }
+
+for (const num of numbers) {
+  if (num % 10 === 0) {
+    result = result.toReversed();
+    break;
+  }
+}
+
+console.log(result, "result");

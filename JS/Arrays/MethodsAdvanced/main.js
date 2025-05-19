@@ -173,6 +173,58 @@ const data4 = [
 // Якщо користувачеві >= 18 років - isAdult: true, інакше false
 // (map)
 
+const task1Data = data4.map((user) => {
+  if (user.age >= 18) {
+    user.isAdult = true;
+  } else {
+    user.isAdult = false;
+  }
+
+  return user;
+});
+
+console.log(task1Data, "task1Data");
+
+console.log(
+  data4.map((user) => ({ ...user, isAdult: user.age >= 18 })),
+  "task1DataV2"
+);
+
 // 2. Відсіяти (filter) тільки повнолітніх користувачів
 
+const task2Data = data4.filter((user) => {
+  if (user.age >= 18) {
+    return true;
+  } else {
+    return false;
+  }
+});
+
+console.log(task2Data, "task2Data");
+console.log(
+  data4.filter((user) => user.age >= 18),
+  "task2DataV2"
+);
+
 // 3. Вивести emails всіх неповнолітніх користувачів (filter)
+
+data4.filter((user) => {
+  if (user.age < 18) {
+    console.log(user);
+    return true;
+  } else {
+    return false;
+  }
+});
+
+data4
+  .filter((user) => user.age < 18)
+  .map((user) => user.email)
+  .forEach(console.log);
+
+console.log(
+  data4
+    .map((user) => ({ ...user, isAdult: user.age >= 18 }))
+    .filter((user) => user.isAdult),
+  "all at once"
+);

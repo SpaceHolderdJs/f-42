@@ -216,6 +216,36 @@ const points = [
 ];
 
 // 1. Знайти (filter) всі точки значення "y" яких більше за 10 (включно)
+
+const pointsWithYMoreThan10 = points.filter((point) => point.y >= 10);
+
+console.log(pointsWithYMoreThan10, "pointsWithYMoreThan10");
+
 // 2. Знайти точку (find) сума значень якої (x + y + z) === 13 (якщо немає - вивести повідомлення) (включно)
-// 3. Знайти всі точки (filter) зачення х яких знаходиться в діапазоні (12 - 19) (включно)
-// 4. Знати всі точки (filter), значення х, y, z яких більші за 4 (включно)
+
+const pointWithSum13 = points.find((point) => {
+  const sum = point.x + point.y + point.z;
+  return sum === 13;
+});
+
+console.log(pointWithSum13, "pointWithSum13");
+
+if (!pointWithSum13) {
+  alert("There in no item");
+}
+
+// 3. Знайти всі точки (filter) значення х яких знаходиться в діапазоні (12 - 19) (включно)
+
+const pointsWithXBetween12and19 = points.filter(
+  (point) => point.x >= 12 && point.x <= 19
+);
+
+console.log(pointsWithXBetween12and19, "pointsWithXBetween12and19");
+
+// 4. Знайти всі точки (filter), значення х, y, z яких більші за 4 (включно)
+
+const pointsWithAllTheItemsMoreThan4 = points.filter(
+  (point) => point.x >= 4 && point.y >= 4 && point.z >= 4
+);
+
+console.log(pointsWithAllTheItemsMoreThan4, "pointsWithAllTheItemsMoreThan4");

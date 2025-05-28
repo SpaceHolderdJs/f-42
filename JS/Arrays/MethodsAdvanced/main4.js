@@ -201,9 +201,40 @@ const hwArray = [
   { id: '218212-191192-8909-111', date: '01-04-2025', amount: 9000 },
   { id: '1a8291-192s2-42129-421', date: '02-10-2025', amount: 15000 },
   { id: '28473289-222w-1ds229-121', date: '11-02-2025', amount: 20000 },
+  { id: '28473289-222w-1ds229-129', date: '11-02-2025' },
 ];
 
 // Завдання
 // 1. (reduce) Порахувати середнє арифметичне значення amount
+
+const contractsWithAmount = hwArray.filter((contract) => 'amount' in contract);
+
+const total = contractsWithAmount.reduce((totalAmount, contract) => {
+  totalAmount = totalAmount + contract.amount;
+  return totalAmount;
+}, 0);
+
+console.log(total, 'total');
+
+const avgAmount = total / contractsWithAmount.length;
+
+console.log(avgAmount, 'avgAmount');
+
 // 2. Відсортувати масив за amount у порядку спадання
+
+const sortedContracts = contractsWithAmount.toSorted(
+  (c1, c2) => c2.amount - c1.amount
+);
+// 0, -1, +1
+console.log(sortedContracts, 'sortedContracts');
+
 // 3. *Перевірити чи ВСІ контракти укладено у 2025 році
+const requiredYear = 2025;
+
+const isAllContractsHasYear2025 = hwArray.every((contract) => {
+  const contractYear = contract.date.slice(-4);
+
+  return +contractYear === requiredYear;
+});
+
+console.log(isAllContractsHasYear2025, 'isAllContractsHasYear2025');

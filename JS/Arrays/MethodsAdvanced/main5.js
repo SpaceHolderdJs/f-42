@@ -141,28 +141,51 @@ console.log(calculatedReports, 'calculatedReports');
 
 // Завдання*:
 
-const martix2 = [
+const matrix2 = [
   [1, 2, 3],
   [4, 5, 6],
   [7, 8, 9],
 ];
 
 // 1. Порахувати суму матриці (flatMap) + reduce
+
+const sumOfMatrix2 = matrix2
+  .flatMap((el) => el[0] + el[1] + el[2])
+  .reduce((sum, n) => (sum += n), 0);
+
+
+console.log(sumOfMatrix2, 'sumofmatrix2');
+
 // 2. Порахувати діагональ матриці (головну) (3 + 5 + 7) (forEach, reduce, flat)...
 
+const elementsQuantity = matrix2.length - 1;
 
+const diagonalSum = matrix2.reduce((sum, subArr, index) => {
+  const targetElement = subArr[elementsQuantity - index];
+  sum = sum + targetElement;
+  return sum;
+},0);
 
+console.log(diagonalSum, "diagonalSum");
 
 const dataset1 = [{ city: 'Kyiv' }, { city: 'Lviv' }, { city: 'Poltava' }];
 
 // Завдання
 // Відсортувати dataset1 ПРОТИ алфавітного порядку за полем city (localeCompare)
 
+const sortedDataset1 = dataset1.toSorted((item1, item2) =>
+  item2.city.localeCompare(item1.city)
+);
+console.log(sortedDataset1, 'sortedDataset1');
+
 const points = [
   { x: 1, y: 4, z: 2 },
   { x: 1, y: 3, z: 1 },
   { x: 3, y: 6, z: 3 },
 ];
+
+const sortedPoints = points.toSorted((p1, p2) => p1.x - p2.x || p1.y - p2.y);
+console.log(sortedPoints, 'sortedPoints');
 
 // Завдання
 // Відсортувати точки за ОСНОВНИМ критерієм x (зростання)

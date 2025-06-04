@@ -68,18 +68,22 @@ function parseDateFromString(dateString) {
 console.log(parseDateFromString('02.05.2025'), 'parseDateFromString');
 console.log(parseDateFromString('11.10.2024'), 'parseDateFromString (2)');
 
-
-
 // Завдання
 
 function findBiggestValue(arr) {
-    let biggest = arr[0];
+  //   let biggest = arr[0];
+  //   arr.forEach((el) => {
+  //     if (biggest < el) {
+  //       biggest = el;
+  //     }
+  //   });
+  //   return biggest;
 
-    // допписати функцію findBiggestValue
-    // яка має знайти найбільший елемент масиву чисел та повернути його
-
-    return biggest;
+  return arr.toSorted((el1, el2) => el1 - el2).at(-1);
 }
+
+const biggest = findBiggestValue([10, 1, 2, 3, 4, 5]);
+console.log(biggest, 'biggest');
 
 // findBiggestValue([1,2,3,4,5])
 // 5;
@@ -87,10 +91,21 @@ function findBiggestValue(arr) {
 // Завдання
 
 function repeatString(str, repeatQuantity) {
-    // дописати функцію repeatString
-    // яка має повернути строку str повторену repeatQuantity разів
-    // for (i)
+  // дописати функцію repeatString
+  // яка має повернути строку str повторену repeatQuantity разів
+  // for (i)
+
+  let res = '';
+
+  for (let i = 0; i < repeatQuantity; i = i + 1) {
+    res = res.concat(str);
+  }
+
+  return res;
 }
+
+const repeatStrResult = repeatString('hello', 3);
+console.log(repeatStrResult, 'repeatStrResult');
 
 // repeatString("hello", 3)
 // "hellohellohello"
@@ -101,10 +116,30 @@ function repeatString(str, repeatQuantity) {
 // p - степінь
 
 function powerOf(n, p) {
-    // дописати функцію powerOf
-    // яка повертає значення "n" у степені "p"
-    // for 
+  // дописати функцію powerOf
+  // яка повертає значення "n" у степені "p"
+  // for
+  let res = n;
+
+  for (let i = 0; i < p - 1; i++) {
+    res = res * n;
+  }
+
+  return res;
 }
 
-// powerOf(2, 2) 
+const power1 = powerOf(2, 3);
+console.log(power1, 'power1');
+
+const power2 = powerOf(10, 5);
+console.log(power2, 'power2');
+
+console.log(Math.pow(10, 5), 'pow');
+
+// 2(3) = 2 * 2 * 2
+// 10(5) = 10 * 10 * 10 * 10 * 10
+
+// powerOf(2, 2)
 // 4
+
+//this

@@ -147,39 +147,77 @@ const ATM = {
 
 console.log(ATM, 'ATM');
 
-
-
 const car = {
-    fuel: 100,
-    distance: 0,
-    maxSpeed: 200,
-    capacity: 5,
-    passengers: 0,
+  fuel: 50,
+  distance: 0,
+  maxSpeed: 200,
+  capacity: 5,
+  passengers: 1,
 
-    // d - відстань яку треба проїхати
-    ride: function(d) {},
+  // d - відстань яку треба проїхати
+  ride: function (d) {
+    if (this.passengers === 0) {
+      console.error("The car would not ride, it's empty");
+      return;
+    }
 
-    // passengers - кількість пасажирів, що увійшли
-    onboard: function(passengers) {},
+    if (this.fuel === 0) {
+      console.error('The car would not ride without fuel');
+      return;
+    }
 
-    // passengers - кількість пасажирів, що вийшли
-    outboard: function(passengers) {}
+    console.log(
+      `The car is riding! Passengers: ${this.passengers}. Fuel: ${this.fuel}. Distance to ride: ${d}`
+    );
 
-    // Завдання:
-    // реалізувати правила
+    this.distance = this.distance + d;
+  },
 
-    // - ride:
-    // машина рушає лише з хочаб 1 пасажиром (passengers)
-    // машина рушає лише коли є бензин (fuel)
-    // машина записує до дистанції параметр (d)
+  // passengers - кількість пасажирів, що увійшли
+  onboard: function (passengers) {
+    if (passengers > this.capacity - this.passengers) {
+      console.error(
+        `The car could not fit more than ${this.capacity} passengers!`
+      );
+      return;
+    }
 
-    // - onboard:
-    // машина може прийняти пасажирів не більше ніж (capacity)
+    console.log(`${passengers} passengers have been onboarded successfully`);
+    this.passengers = this.passengers + passengers;
+  },
 
-    // - outboard:
-    // з машини не може вийти більше людей, ніж у ній було (passengers)
+  // passengers - кількість пасажирів, що вийшли
+  outboard: function (passengers) {
+    if (this.passengers < passengers) {
+      console.error(
+        `This amount of passengers could not leave the car (too much of them)`
+      );
+      return;
+    }
 
+    console.log(`${passengers} passengers just leaved the car`);
+    this.passengers = this.passengers - passengers;
+  },
 
-    // onboard та outboard впливають на кількість пасажирів у машині (passengers)
-}
+  // Завдання:
+  // реалізувати правила
 
+  // - ride:
+  // машина рушає лише з хочаб 1 пасажиром (passengers)
+  // машина рушає лише коли є бензин (fuel)
+  // машина записує до дистанції параметр (d)
+
+  // - onboard:
+  // машина може прийняти пасажирів не більше ніж (capacity)
+
+  // - outboard:
+  // з машини не може вийти більше людей, ніж у ній було (passengers)
+
+  // onboard та outboard впливають на кількість пасажирів у машині (passengers)
+};
+
+car.onboard(5);
+
+car.ride(50);
+
+car.outboard(2);

@@ -203,12 +203,11 @@ console.log(car1, 'car1');
 const car2 = new Car('white', 1000, 140);
 console.log(car2, 'car2');
 
-
 console.log(Car.track, 'track');
 
 const a = new Number(10);
 
-console.log(a, "a");
+console.log(a, 'a');
 console.log(Number.MIN_SAFE_INTEGER);
 
 // Завдання:
@@ -224,9 +223,44 @@ console.log(Number.MIN_SAFE_INTEGER);
 // по тестувати
 
 function DocumentConstructor(title, amount, date) {
+  this.title = title;
+  this.amount = amount;
+  this.date = date;
 
+  this.changeAmount = function (newAmount) {
+    this.amount = newAmount;
+  };
 }
 
 function SignedDocumentConstructor(title, amount, date, isSigned = true) {
+  const defaultDocument = new DocumentConstructor(title, amount, date);
 
+  this.title = defaultDocument.title;
+  this.amount = defaultDocument.amount;
+  this.date = defaultDocument.date;
+
+  this.changeAmount = defaultDocument.changeAmount;
+
+  this.changeIsSigned = function(isSigned) {
+    this.isSigned = isSigned;
+  } 
+
+  this.isSigned = isSigned;
 }
+
+const document1 = new DocumentConstructor('Document 1', 30, '01.02.2025');
+
+document1.changeAmount(1000);
+
+console.log(document1, 'document1');
+
+const signedDocument1 = new SignedDocumentConstructor(
+  'Signed Document 1',
+  40,
+  '02.01.2025'
+);
+
+signedDocument1.changeAmount(2000);
+signedDocument1.changeIsSigned(false);
+
+console.log(signedDocument1, 'SignedDocument1');

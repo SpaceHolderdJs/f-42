@@ -153,31 +153,32 @@ cat.walk();
 console.log(cat.sleepTimes, 'sleepTimes');
 
 class Fish extends Animal {
-    constructor(name) {
-        super(name);
-    }
+  constructor(name) {
+    super(name);
+  }
 
-    walk (distance) {
-        // throw new Error('The fish can not walk!');
-        this.swim(distance);
-    }
+  walk(distance) {
+    // throw new Error('The fish can not walk!');
+    this.swim(distance);
+  }
 
-    swim(distance) {
-        console.log(`The fish, named ${this.name} is swimming! Distance: ${distance}`)
-    }
+  swim(distance) {
+    console.log(
+      `The fish, named ${this.name} is swimming! Distance: ${distance}`
+    );
+  }
 
-    sayHello() {
-        console.log("bll-bll-bll-bll");
-    }
+  sayHello() {
+    console.log('bll-bll-bll-bll');
+  }
 }
 
-const fish = new Fish("Bruce");
+const fish = new Fish('Bruce');
 
 fish.walk(100);
 fish.sayHello();
 
-console.log("Log after error");
-
+console.log('Log after error');
 
 // Завдання
 // Device
@@ -185,26 +186,99 @@ console.log("Log after error");
 // Додати метод changePrice(price)
 
 // Tablet
-// Унаслідувати Device 
+// Унаслідувати Device
 // змінити метод update - "The tablet is updating ..."
 
 // IPad
 // Унаслідувати Tablet
 // Змінити методи off, on - "The Ipad is on/off"
 
-
 // Phone
-// Унаслідувати Device 
+// Унаслідувати Device
 // Додати новий метод call(phoneNumber) - console.log()
 
-
 class Device {
-    constructor(brand, price) {}
+  constructor(brand, price) {
+    this.brand = brand;
+    this.price = price;
+  }
+
+  on() {
+    console.log(`The device ${this.brand} is turning on ...`);
+  }
+
+  off() {
+    console.log(`The device ${this.brand} is turning off ...`);
+  }
+
+  update() {
+    console.log(`The device ${this.brand} is updating`);
+  }
+
+  changePrice(price) {
+    this.price = price;
+  }
 }
 
+const device = new Device('Apple', 3000);
+console.log(device, 'device');
 
-class Tablet extends Device {}
+device.on();
+device.off();
 
-class IPad extends Tablet {}
+device.update();
 
-class Phone extends Device {}
+device.changePrice(500);
+console.log('Device after changing a price', device);
+
+class Tablet extends Device {
+  constructor(brand, price) {
+    super(brand, price);
+  }
+
+  update() {
+    console.log(`The tablet ${this.brand} is updating`);
+  }
+}
+
+const tablet = new Tablet('Samsung', 1500);
+console.log(tablet, 'tablet');
+
+tablet.on();
+
+tablet.update();
+
+class IPad extends Tablet {
+  constructor(_, price) {
+    super('Apple', price);
+  }
+
+  on() {
+    console.log(`The IPad ${this.brand} is turning on...`);
+  }
+
+  off() {
+    console.log(`The IPad ${this.brand} is turning off...`);
+  }
+}
+
+const ipad = new IPad('', 2000);
+
+console.log(ipad, 'ipad');
+
+ipad.on();
+ipad.off();
+
+class Phone extends Device {
+  constructor(brand, price) {
+    super(brand, price);
+  }
+
+  call(phoneNumber) {
+    console.log(`The phone ${this.brand} is calling a number ${phoneNumber}`);
+  }
+}
+
+const phone = new Phone('Google Pixel', 2000);
+
+phone.call('+38099121212121');

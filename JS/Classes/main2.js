@@ -163,8 +163,6 @@ console.log(
   'supportCallingReasonsCollector'
 );
 
-
-
 // Завдання:
 // описати клас (абстрактний) AutoService
 
@@ -176,22 +174,61 @@ console.log(
 // outboard(car) - видає машину клієнту (забирає її з repairedCars)
 
 class AutoService {
-    static cars = [];
-    static repairedCars = [];
+  static cars = [];
+  static repairedCars = [];
 
-    static repair() {}
+  static repair(vin) {
+    const repairCarIndex = AutoService.cars.findIndex((car) => car.vin === vin);
 
-    static onboard() {}
+    if (repairCarIndex === -1) return null;
 
-    static outboard() {}
+    const [repairedCar] = AutoService.cars.splice(repairCarIndex, 1);
+
+    AutoService.repairedCars.push(repairedCar);
+
+    return repairCarIndex;
+  }
+
+  static onboard(car) {
+    AutoService.cars.push(car);
+  }
+
+  static outboard(car) {
+    AutoService.repairedCars = AutoService.repairedCars.filter(
+      (carToFilter) => carToFilter.vin !== car.vin
+    );
+  }
 }
 
 // Завдання
 // Додати логіку створення екземплярів машини car(brand, model, color, price, vin)
 
 class Car {
-    constructor() {}
+  constructor(brand, model, color, price, vin) {
+    this.brand = brand;
+    this.model = model;
+    this.color = color;
+    this.price = price;
+    this.vin = vin;
+  }
 }
+
+const cars = [
+  new Car('Ford', 'Mustang', 'Ruby', 20000, '1se3243243i43284'),
+  new Car('Toyota', 'GT', 'Blue', 15000, '121094912923f2'),
+  new Car('Subaru', 'BRZ', 'Black', 13000, '123029202020'),
+];
+
+cars.forEach((car) => {
+  AutoService.onboard(car);
+  console.log(`The car ${car.model}, ${car.brand} has been onboarded`);
+
+  AutoService.repair(car.vin);
+  console.log(`The car ${car.model}, ${car.brand} has been repaired`);
+
+  AutoService.outboard(car);
+  console.log(`The car ${car.model}, ${car.brand} has been outboard`);
+});
 
 // Автомобілі мають обслуговуватися на AutoService
 // onboard -> repair -> outboard

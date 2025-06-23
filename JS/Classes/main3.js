@@ -263,20 +263,18 @@ class AutoService extends AutoServiceTemplate {
 }
 
 class SportCarsService extends AutoService {
-    constructor(cars, repairedCars, forModels = ["Mustang", "Camaro", "BRZ"]) {
-        super(cars, repairedCars);
+  constructor(cars, repairedCars, forModels = ['Mustang', 'Camaro', 'BRZ']) {
+    super(cars, repairedCars);
 
-        this.forModels = forModels;
-    }
+    this.forModels = forModels;
+  }
 
-    onboard(car) {
-        if(this.forModels.includes(car.model)) {
-            super.onboard(car);
-        }
+  onboard(car) {
+    if (this.forModels.includes(car.model)) {
+      super.onboard(car);
     }
+  }
 }
-
-
 
 // Завдання
 
@@ -285,15 +283,41 @@ class SportCarsService extends AutoService {
 // Додати метод onboard(user) - додає user у members ([])
 // Додати метод post(post) - додає post у posts ([])
 
+class AbstractSocialNetwork {
+  members = [];
+  posts = [];
+  blockedList = [];
+}
 
-class SocialNetwork {
+class SocialNetwork extends AbstractSocialNetwork {
+  constructor(members, posts, blockedList) {
+    super();
 
-    constructor(members, posts, blockedList) {
-        // ...
-    }
+    this.members = members;
+    this.posts = posts;
+    this.blockedList = blockedList;
+  }
+
+  onboard(user) {
+    this.members.push(user);
+  }
+
+  post(postData) {
+    this.posts.push(postData);
+  }
 }
 
 const socialNetwork = new SocialNetwork([], [], []);
+
+socialNetwork.onboard('user1');
+
+socialNetwork.post({
+  title: 'Post1',
+  description: 'Post 1 description',
+  author: 'user1',
+});
+
+console.log(socialNetwork, 'socialNetwork');
 
 // SocialNetworkUser
 // Описати конструктор
@@ -302,10 +326,45 @@ const socialNetwork = new SocialNetwork([], [], []);
 // Додати метод post (використовує метод post з SocialNetwork екземпляру)
 
 class SocialNetworkUser {
-    #socialNetwork = socialNetwork;
+  #socialNetwork = socialNetwork;
 
-    constructor(name, email, age, interests = []) {}
+  constructor(name, email, age, interests = []) {
+    this.name = name;
+    this.email = email;
+    this.age = age;
+    this.interests = interests;
+  }
+
+  register() {
+    this.#socialNetwork.onboard(this.email);
+  }
+
+  post(title, description) {
+    this.#socialNetwork.post({ title, description, author: this.email });
+  }
 }
+
+const socialNetworkUser = new SocialNetworkUser('Igor', 'email@gmail.com', 25, [
+  'Programming',
+]);
+
+socialNetworkUser.register();
+
+socialNetworkUser.post('JS new features', 'Description');
+socialNetworkUser.post('Go Lang new features', 'Description');
+
+const socialNetworkUser2 = new SocialNetworkUser(
+  'Oleg',
+  'email2@gmail.com',
+  28,
+  ['Swimming']
+);
+
+socialNetworkUser2.register();
+
+socialNetworkUser2.post('Swimming benefits for health', 'Description');
+
+console.log(socialNetwork, 'socialNetwork');
 
 // SocialNetworkAdmin
 // Додати приватне поле #socialNetwork
@@ -313,6 +372,35 @@ class SocialNetworkUser {
 // Додати метод block(user) додає user до blockedList його socialNetwork
 
 class SocialNetworkAdmin extends SocialNetworkUser {
-    #socialNetwork = socialNetwork;
-    constructor(name, email, age, interests = [], isAdmin) {}
+  #socialNetwork = socialNetwork;
+
+  constructor(name, email, age, interests = [], isAdmin) {
+    super(name, email, age, interests);
+
+    this.isAdmin = isAdmin;
+  }
+
+  block(userEmail) {
+    this.#socialNetwork.blockedList.push(userEmail);
+  }
+
+  unblock(userEmail) {
+    this.#socialNetwork.blockedList = this.#socialNetwork.blockedList.filter(
+      (user) => user !== userEmail
+    );
+  }
 }
+
+const socialNetworkAdmin = new SocialNetworkAdmin(
+  'admin1',
+  'admin@gmail.com',
+  22,
+  [],
+  true
+);
+
+socialNetworkAdmin.block(socialNetworkUser2.email);
+console.log(socialNetwork, 'socialNetwork after blocking');
+
+socialNetworkAdmin.unblock(socialNetworkUser2.email);
+console.log(socialNetwork, 'socialNetwork after unblocking');

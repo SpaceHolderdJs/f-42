@@ -278,21 +278,39 @@ users.forEach((user) => {
 // - ride - додає дистанцію (distance)
 // - stop - зупиняє (сonsole.log)
 
-// Застосувати патеерн Middleware на масиві cars
+// Застосувати паттерн Middleware на масиві cars
 
 // fillup -> ride -> stop
 // *return this!
 
 class Car {
   constructor(model, fuel, distance) {
-    // ...
+    this.model = model;
+    this.fuel = fuel;
+    this.distance = distance;
   }
 
-  fillup(fuel = 10) {}
+  fillup(fuel = 10, fuelType = 'A-95') {
+    console.log(
+      `The car ${this.model} has been filled with ${fuel}, type of the fuel: ${fuelType}`
+    );
+    this.fuel += fuel;
 
-  ride(distance = 100) {}
+    return this.fuel;
+  }
 
-  stop() {}
+  ride(distance = 100) {
+    console.log(`The car ${this.model} is riding for the distance ${distance}`);
+    this.distance += distance;
+
+    return this.distance;
+  }
+
+  stop() {
+    console.log(`The car ${this.model} has been stopped`);
+
+    return false;
+  }
 }
 
 const cars = [
@@ -300,3 +318,135 @@ const cars = [
   new Car('Toyota', 0, 0),
   new Car('Dodge', 0, 0),
 ];
+
+cars.forEach((car) => {
+  console.log(`Processing car: ${car.model}...`);
+
+  const { fillup, ride, stop } = car;
+
+  const sequence = [
+    fillup.bind(car, 15, 'A-92'),
+    ride.bind(car, 200),
+    stop.bind(car),
+  ];
+
+  // without an output result
+  //   sequence.forEach((method) => {
+  //     method();
+  //   });
+
+  // with results
+  const finalResult = sequence.map((callback) => {
+    const result = callback();
+    return result;
+  });
+
+  console.log(finalResult, 'finalResult');
+});
+
+// Observer
+
+class ObservablePattern {
+  constructor() {
+    this.observers = [];
+  }
+
+  subscribe(fn) {
+    this.observers.push(fn);
+  }
+
+  unsubscribe(fn) {
+    this.observers = this.observers.filter(
+      (observer) => observer.name !== fn.name
+    );
+  }
+
+  notify(data) {
+    this.observers.forEach((observer) => observer(data));
+  }
+}
+
+class BreakAbleObserver extends ObservablePattern {
+  notify(data) {
+    for (const fn of this.observers) {
+      try {
+        fn(data);
+      } catch (err) {
+        break;
+      }
+    }
+  }
+}
+
+const registrationObserver = new BreakAbleObserver();
+
+const registerUserData = {
+  email: 'emailgmail.com',
+  password: 'password1',
+};
+
+function validateUserData(data) {
+  if (data.password.length < 6) {
+    console.log(`Password is too short`);
+    throw new Error(`Password is too short`);
+  }
+
+  if (!data.email.includes('@') || !data.email.includes('.')) {
+    console.log(`Email is invalid`);
+    throw new Error(`Email is invalid`);
+  }
+}
+
+function sendUserDataToTheServer(data) {
+  console.log(`Data to send to server: ${data.email}, ${data.password}`);
+}
+
+registrationObserver.subscribe(validateUserData);
+registrationObserver.subscribe(sendUserDataToTheServer);
+
+// registrationObserver.unsubscribe(sendUserDataToTheServer);
+
+registrationObserver.notify(registerUserData);
+
+let counter = 0;
+let sum = counter + 100;
+
+const counterObserver = new ObservablePattern();
+
+function logCounter(counter) {
+  console.log(`Updated counter: ${counter}`);
+}
+
+function updateCounterHTML(counter) {
+  const counterHTMLElement = document.querySelector('#counter');
+  counterHTMLElement.textContent = counter;
+}
+
+function recalculateSum(counter) {
+  sum = counter + 100;
+  console.log(`New sum: ${sum}`);
+}
+
+counterObserver.subscribe(logCounter);
+counterObserver.subscribe(updateCounterHTML);
+counterObserver.subscribe(recalculateSum);
+
+const increaseButton = document.querySelector('#counter-increase');
+increaseButton.onclick = () => {
+  counterObserver.notify(++counter);
+};
+
+const decreaseButton = document.querySelector('#counter-decrease');
+decreaseButton.onclick = () => {
+  counterObserver.notify(--counter);
+};
+
+function resetCounter() {
+  counter = 0;
+  updateCounterHTML(counter);
+}
+
+const resetButton = document.querySelector('#counter-reset');
+resetButton.onclick = () => {
+  resetCounter();
+};

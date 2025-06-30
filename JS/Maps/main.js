@@ -117,25 +117,150 @@ class HistoryUser {
   }
 
   work() {
-    console.log('...');
+    console.log(`The user ${this.name} is working`);
+    userHistory.set(this, 'sleep');
   }
 
   rest() {
-    console.log('...');
+    userHistory.set(this, 'rest');
+    console.log(`The user ${this.name} is resting`);
   }
 
   sleep() {
-    console.log('...');
+    userHistory.set(this, 'sleep');
+    console.log(`The user ${this.name} is sleeping`);
   }
 }
 
 const user1 = new HistoryUser('Igor');
+
+user1.sleep();
+// user1.work();
+// user1.rest();
+
 const user2 = new HistoryUser('Oleg');
 
+user2.sleep();
+// user2.work();
+// user2.rest();
+
+console.log(userHistory, 'userHistory after events');
+
 // oчікуваний результат
+// console.log(
+//   new Map([
+//     [user1, 'sleep'],
+//     [user2, 'work'],
+//   ])
+// );
+
+class TimetableGeneral {
+  static timetable = new Map();
+
+  static schedule(date = new Date(), dayPeriod = 'morning', customer) {
+    const isDateAlreadyExists = TimetableGeneral.timetable.has(date);
+
+    if (!isDateAlreadyExists) {
+      const initialScheduleData = {
+        morning: [],
+        afternoon: [],
+        evening: [],
+      };
+
+      initialScheduleData[dayPeriod].push(customer);
+
+      TimetableGeneral.timetable.set(date, initialScheduleData);
+      return;
+    }
+
+    const scheduleForDate = TimetableGeneral.timetable.get(date);
+    const copiedScheduleForDate = { ...scheduleForDate };
+
+    copiedScheduleForDate[dayPeriod].push(customer);
+
+    TimetableGeneral.timetable.set(date, copiedScheduleForDate);
+  }
+
+  static removeSchedule(date = new Date(), dayPeriod, customerToRemove) {
+    const scheduleToRemoveFrom = TimetableGeneral.timetable.get(date);
+    // {morning: [Igor], afternoon: [], evening: [Alex]}
+
+    const scheduleToRemoveFromCopy = { ...scheduleToRemoveFrom };
+    // copy {morning: [Igor], afternoon: [], evening: [Alex]}
+
+    scheduleToRemoveFromCopy[dayPeriod] = scheduleToRemoveFromCopy[
+      dayPeriod
+    ].filter((customer) => customer.email !== customerToRemove.email);
+
+    TimetableGeneral.timetable.set(date, scheduleToRemoveFromCopy);
+  }
+
+  static reschedule(
+    currentDate,
+    currentDayPeriod,
+    desiredDate,
+    desiredDayPeriod,
+    customer
+  ) {
+    const isDateAlreadyExists = TimetableGeneral.timetable.has(currentDate);
+    if (!isDateAlreadyExists) return;
+
+    TimetableGeneral.removeSchedule(currentDate, currentDayPeriod, customer);
+    TimetableGeneral.schedule(desiredDate, desiredDayPeriod, customer);
+  }
+}
+
+// [TEST]: Schedule
+
+const today = new Date();
+
+TimetableGeneral.schedule(today, 'morning', {
+  name: 'Igor',
+  email: 'email@gmail.com',
+  phone: '+380957777777',
+});
+
+TimetableGeneral.schedule(today, 'evening', {
+  name: 'Alex',
+  email: 'emai2@gmail.com',
+  phone: '+38095734337',
+});
+
+const tomorrow = new Date();
+tomorrow.setDate(tomorrow.getDate() + 1);
+
+TimetableGeneral.schedule(tomorrow, 'afternoon', {
+  name: 'Olena',
+  email: 'email3@gmail.com',
+  phone: '+38095392929101',
+});
+
+console.log(TimetableGeneral.timetable, 'timetable after the schedule');
+
+TimetableGeneral.removeSchedule(today, 'evening', {
+  name: 'Alex',
+  email: 'emai2@gmail.com',
+  phone: '+38095734337',
+});
+
 console.log(
-  new Map([
-    [user1, 'sleep'],
-    [user2, 'work'],
-  ])
+  TimetableGeneral.timetable,
+  'timetable after removing the schedule'
 );
+
+TimetableGeneral.reschedule(today, 'morning', tomorrow, 'evening', {
+  name: 'Igor',
+  email: 'email@gmail.com',
+  phone: '+380957777777',
+});
+
+console.log(TimetableGeneral.timetable, 'timetable after reschedule (Igor)');
+
+// Date => {"morning": [], "afternoon": [], "evening": []}
+
+// Schedule
+// Re-schedule
+// Remove session
+
+// Place forward
+// Place back

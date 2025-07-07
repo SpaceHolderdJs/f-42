@@ -1,0 +1,38 @@
+body * {
+    box-sizing: border-box;
+}
+
+.calculator-body {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    align-items: center;
+    justify-content: center;
+
+    max-width: 200px;
+
+    gap: 5px;
+
+    /* border: 1px dashed black; */
+}
+
+.calculator-body input {
+    width: 100%;
+}
+
+.calculator-body .calculator-action-button {
+    width: calc(25% - 5px);
+}
+
+.calculator-body .calculator-number-button {
+    width: calc(33% - 5px);
+}
+
+.calculator-body button {
+    width: 20%;
+}
+
+/* .calculator-body button:last-child {
+    width: 60%;
+} */

@@ -44,13 +44,13 @@ body {
 }
 
 .modal-window .modal-header h4 {
-    margin: 0;
+  margin: 0;
 }
 
 .modal-window .modal-body {
-    width: 100%;
-    height: 100%;
-    padding: 10px;
+  width: 100%;
+  height: 100%;
+  padding: 10px;
 }
 
 .modal-backdrop {
@@ -76,4 +76,105 @@ body {
 
 .modal-backdrop.modal-closed {
   visibility: hidden;
+}
+
+.accordion-wrapper {
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  border: 1px solid grey;
+
+  overflow: hidden;
+}
+
+.accordion-wrapper .accordion-header {
+  width: 100%;
+
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 10px;
+
+  background: lightgrey;
+}
+
+.accordion-wrapper .accordion-header h3 {
+    margin: 5px 0px;
+}
+
+.accordion-wrapper .accordion-body {
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 5px;
+  transition: 0.3s all;
+}
+
+.accordion-wrapper .accordion-body.accordion-body-hidden {
+  height: 0px;
+  padding: 0;
+  /* visibility: hidden; */
+}
+
+.accordion-wrapper .accordion-body.accordion-body-visible {
+  height: 150px;
+  padding: 5px;
+  /* visibility: visible; */
+}
+
+.progress-wrapper {
+  width: 100%;
+  height: 20px;
+  background: lightgrey;
+  border-radius: 10px;
+  margin: 5px 0px;
+}
+
+.progress-wrapper .progress-bar {
+  height: 100%;
+  border-radius: inherit;
+  transition: 0.3s width;
+}
+
+.mousemove-area {
+  width: 100%;
+  height: 100vh;
+
+  background: lightgrey;
+
+  /* display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40px; */
+}
+
+.circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+
+  background: teal;
+
+  position: absolute;
+  left: 0;
+  top: 0;
+
+  z-index: 999;
+}
+
+
+.space {
+  background: black;
+  position: relative;
+}
+
+.space .star {
+  width: 5px;
+  height: 5px;
+  
+  background: white;
+  border-radius: 50%;
+  position: absolute;
 }

@@ -1,0 +1,14 @@
+.red {
+    color: darkred;
+}
+
+.user-card {
+    margin: 5px;
+    padding: 5px;
+    border: 1px solid black;
+}
+
+.skills-wrapper {
+    display: flex;
+    gap: 5px;
+}

@@ -347,7 +347,7 @@ new MouseMoveCanvas().init(
     area.classList.add('space');
 
     // Generating stars
-    const starsQuantity = 300;
+    const starsQuantity = 500;
 
     for (let i = 0; i < starsQuantity; i++) {
       // Star
@@ -359,6 +359,10 @@ new MouseMoveCanvas().init(
       // На натискання на зірку має з`явитися alert
       // alert має вивести номер зірки (i)
       // після цього зірку треба сховати (star.style.visibility ...)
+      star.onclick = () => {
+        alert(`The number of the star: ${i}`);
+        star.style.visibility = 'hidden';
+      };
 
       const x = Math.floor(Math.random() * area.clientWidth);
       const y = Math.floor(Math.random() * area.clientHeight);

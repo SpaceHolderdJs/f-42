@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./main.css" />
+  </head>
+
+  <body>
+    <form id="sign-in-form" name="sign-in-form">
+      <input name="email" type="email" placeholder="Enter your email..." />
+      <input
+        name="password"
+        type="password"
+        placeholder="Enter your password..."
+      />
+      <button type="submit">Log in</button>
+    </form>
+
+    <form id="sign-up-form" name="sign-up-form">
+      <input name="fullname" type="text" placeholder="Fullname" />
+      <input name="email" type="email" placeholder="Email" />
+      <input name="password" type="password" placeholder="Password" />
+
+      <img id="sign-up-form-avatar-preview" width="100" />
+      <input name="avatar" type="file" />
+
+      <button type="submit">Sign up</button>
+    </form>
+
+    <hr />
+
+    <h2>Create user</h2>
+    <form id="create-user-form" name="create-user-form">
+      <input name="name" type="text" placeholder="Name" />
+      <input name="email" type="email" placeholder="Email" />
+      <input name="password" type="password" placeholder="Password" />
+
+      <img id="create-user-form-avatar-preview" width="100" />
+      <input name="avatar" type="file" />
+
+      <button type="submit">Create User</button>
+    </form>
+
+    <script src="./main.js"></script>
+  </body>
+</html>

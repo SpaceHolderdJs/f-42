@@ -100,7 +100,7 @@ console.log(spansOfThePElements, 'elements');
 // Завдання
 //
 
-const users = [
+let users = [
   {
     email: 'email1@gmail.com',
     name: 'Alex',
@@ -130,6 +130,18 @@ users.forEach((user) => {
     <p>${user.name}</p>
     `;
 
+  const deleteButton = document.createElement('button');
+  deleteButton.textContent = 'Delete item';
+
+  deleteButton.onclick = () => {
+    users = users.filter((userToDelete) => user.email !== userToDelete.email);
+    console.log(users, 'users');
+    div.remove();
+    // document.body.removeChild(div);
+  };
+
+  div.appendChild(deleteButton);
+
   const skillsWrapper = document.createElement('div');
   skillsWrapper.classList.add('skills-wrapper');
 
@@ -147,38 +159,36 @@ users.forEach((user) => {
   document.body.appendChild(div);
 });
 
-
 // 2
 
-const allSkillsElements = document.querySelectorAll(".skill");
+const allSkillsElements = document.querySelectorAll('.skill');
 
 allSkillsElements.forEach((p) => {
-    if (p.textContent === "React") {
-        p.style.background = "aqua";
-    }
+  if (p.textContent === 'React') {
+    p.style.background = 'aqua';
+  }
 
-    if (p.textContent === "JS") {
-        p.style.background = "gold";
-    }
+  if (p.textContent === 'JS') {
+    p.style.background = 'gold';
+  }
 });
 
 // removeElement
 
 allSkillsElements.forEach((p) => {
-    p.remove();
+  p.remove();
 });
 
-const testElementToRemove = document.createElement("div");
-testElementToRemove.textContent = "TEST"
+const testElementToRemove = document.createElement('div');
+testElementToRemove.textContent = 'TEST';
 
 document.body.appendChild(testElementToRemove);
 
 const element = document.body.removeChild(testElementToRemove);
-console.log(element, "element")
+console.log(element, 'element');
 
 testElementToRemove.remove();
 
 // Завдання:
 // додати до кожного користувача зі списку users кнопку Delete
 // на натискання на кнопку вся картка користувача має бути видалена з DOM
-

@@ -56,13 +56,12 @@ signUpForm.onsubmit = (event) => {
   //   });
 };
 
-
 // Завдання
 
 // Додати до createUserForm.onsubmit логіку додавання користувача у UsersService
 // Використовуючи метод (static) addUser - має додати користвача у масив
 
-// Перевірити (has) чи всі поля форми createUserForm існують (заповнені)
+// Перевірити (get) чи всі поля форми createUserForm існують (заповнені)
 // Якщо ні - вивести алерт (alert) з помилкою
 
 // *** Додати стилі до форми
@@ -82,10 +81,18 @@ createUserForm.onsubmit = (event) => {
     formData.get('avatar'),
   ];
 
+  console.log(avatar, 'avatar');
+
+  if (!name || !email || !password || avatar.size === 0) {
+    alert('Some data is missing');
+    return;
+  }
+
   const user = new User(name, email, password, URL.createObjectURL(avatar));
   console.log(user, 'user');
 
-  // UsersService.addUser(user);
+  UsersService.addUser(user);
+  console.log(UsersService.users, 'users after adding the user');
 };
 
 class User {
@@ -103,7 +110,8 @@ class UsersService {
   static users = [];
 
   static addUser = (user) => {
-    // ...
+    console.log(`User has been added to the array: ${user.name}`);
+    UsersService.users.push(user);
   };
 
   static removeUser = (userId) => {};

@@ -18,8 +18,14 @@ class FormConstructor {
     this.form.onsubmit = (event) => {
       event.preventDefault();
 
+      const formData = new FormData(this.form);
+      const validated = this.validate(formData);
+
+      if (!validated) {
+        return;
+      }
+
       if (this.options.onSubmit) {
-        const formData = new FormData(this.form);
         this.options.onSubmit(formData);
       }
     };
@@ -39,6 +45,28 @@ class FormConstructor {
     this.form.appendChild(button);
 
     this.parent.appendChild(this.form);
+  }
+
+  validate(formData = new FormData()) {
+    if (!this.options.validation) {
+      return true;
+    }
+
+    let result = true;
+
+    for (const fieldName in this.options.validation) {
+      const checker = this.options.validation[fieldName];
+
+      const checkerError = checker(formData.get(fieldName));
+
+      if (checkerError) {
+        alert(`${fieldName}: ${checkerError}`);
+        result = false;
+        break;
+      }
+    }
+
+    return result;
   }
 }
 
@@ -87,46 +115,143 @@ class FormField {
         break;
       }
 
+      case 'number':
       case 'range': {
-        const range = document.createElement('input');
-        range.name = this.name;
-        range.type = 'range';
+        const input = document.createElement('input');
+        input.name = this.name;
+        input.type = this.type;
 
         if (this.options.className) {
-          range.className = this.options.className;
+          input.className = this.options.className;
         }
 
-        if (
-          'max' in this.options &&
-          'min' in this.options &&
-          'step' in this.options
-        ) {
-          range.min = this.options.min;
-          range.max = this.options.max;
-          range.step = this.options.step;
+        if ('max' in this.options) {
+          input.max = this.options.max;
         }
 
-        this.element = range;
-        parent.appendChild(range);
+        if ('min' in this.options) {
+          input.min = this.options.min;
+        }
+
+        if ('step' in this.options && this.type === 'range') {
+          input.step = this.options.step;
+        }
+
+        this.element = input;
+        parent.appendChild(input);
         break;
       }
 
       case 'file': {
-        // Завдання дописати логіку підтримки елементу input type file
-        // Переконатися, що дані файлу потрапляють у formData на onSubmit
+        const file = document.createElement('input');
+        file.type = 'file';
+
+        file.name = this.name;
+
+        if (this.options.className) {
+          file.className = this.options.className;
+        }
+
+        if (this.options.multiple) {
+          file.multiple = this.options.multiple;
+        }
+
+        this.element = file;
+        parent.appendChild(file);
         break;
       }
 
       case 'date': {
-        // Завдання дописати логіку підтримки елементу input type date
-        // Переконатися, що дані дати потрапляють у formData на onSubmit
+        const date = document.createElement('input');
+        date.type = 'date';
+        date.name = this.name;
+
+        if (this.options.className) {
+          date.className = this.options.className;
+        }
+
+        this.element = date;
+        parent.appendChild(date);
+        break;
+      }
+
+      case 'checkbox': {
+        const checkbox = document.createElement('input');
+        checkbox.type = 'checkbox';
+        checkbox.name = this.name;
+
+        const label = document.createElement('label');
+        label.textContent = this.options.placeholder || this.name;
+
+        label.style.display = 'flex';
+        label.style.flexDirection = 'row-reverse';
+        label.style.justifyContent = 'start';
+
+        label.appendChild(checkbox);
+
+        if ('checked' in this.options) {
+          checkbox.checked = this.options.checked;
+        }
+
+        if (this.options.className) {
+          label.className = this.options.className;
+        }
+
+        this.element = checkbox;
+        parent.appendChild(label);
+
+        break;
+      }
+
+      case 'radio': {
+        const fieldset = document.createElement('fieldset');
+
+        fieldset.style.display = 'flex';
+        fieldset.style.flexDirection = 'column';
+        fieldset.style.gap = '5px';
+
+        const label = document.createElement('span');
+        label.textContent = this.options.placeholder || this.name;
+
+        fieldset.appendChild(label);
+
+        if (this.options.options) {
+          this.options.options.forEach((opt) => {
+            const { label, value, checked } = opt;
+
+            const labelElement = document.createElement('label');
+            labelElement.textContent = label;
+
+            labelElement.style.display = 'flex';
+            labelElement.style.flexDirection = 'row-reverse';
+            labelElement.style.justifyContent = 'start';
+            // labelElement.style.alignItems = 'center';
+
+            const radio = document.createElement('input');
+            radio.type = 'radio';
+
+            radio.name = this.name;
+            radio.value = value;
+            radio.checked = checked || false;
+
+            labelElement.appendChild(radio);
+
+            fieldset.appendChild(labelElement);
+          });
+        }
+
+        this.element = fieldset;
+        parent.appendChild(fieldset);
+
         break;
       }
 
       case 'text':
+      case 'password':
+      case 'email':
       default: {
         const input = document.createElement('input');
-        input.type = 'text';
+        input.type = this.type;
         input.name = this.name;
 
         if (this.options.className) {
@@ -154,10 +279,12 @@ new FormConstructor('login-form', document.body, {
   fields: [
     new FormField('name', 'text', {}),
     new FormField('email', 'text', {}),
+    new FormField('password', 'password', {}),
     new FormField('bio', 'textarea', {}),
+    new FormField('experience', 'number', { max: 20, min: 1 }),
     new FormField('salary', 'range', { max: 10, min: 0, step: 1 }),
-    // new FormField('photo', 'file', {}),
-    // new FormField('date', 'date', {}),
+    new FormField('photo', 'file', { multiple: true }),
+    new FormField('date', 'date', {}),
     new FormField('role', 'select', {
       options: [
         { label: 'Admin', value: 'admin' },
@@ -165,8 +292,50 @@ new FormConstructor('login-form', document.body, {
         { label: 'Anonim', value: 'anonim' },
       ],
     }),
+    new FormField('marketing', 'radio', {
+      placeholder: 'How did you know about us?',
+      options: [
+        { label: 'YouTube', value: 'youtube' },
+        { label: 'Facebook ads', value: 'facebook-ads' },
+        { label: 'Other', value: 'other', checked: true },
+      ],
+    }),
+    new FormField('agreement', 'checkbox', {
+      checked: true,
+      placeholder: 'Agree with the terms of service',
+    }),
   ],
+  validation: {
+    email: (email) => {
+      if (!email.includes('@')) {
+        return 'Email should contain the @';
+      }
+
+      if (!email.includes('.')) {
+        return 'Email should contain the .';
+      }
+
+      return null;
+    },
+
+    password: (password) => {
+        if (password.length < 5) {
+            return 'Password should contain at least 5 symbols'
+        }
+
+        return null;
+    }
+
+    // Завдання:
+    // додати валідацію для полів
+    // name - довжина більше 5 і містить пробіл ( )
+    // agreement - тільки значення on
+    // bio - довжина 10+ символів
+    // return null якщо помилок немає (з function)
+  },
 });
+
+
 
 // new FormConstructor("login-form", document.body, {
 //     fields: [],
